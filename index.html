@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Press On Ventures — Fund I Opportunity Summary</title>
-  <meta name="description" content="Press On Ventures Fund I — Early-Stage Consumer Technology Venture Capital">
+  <meta name="description" content="Press On Ventures Fund I — Early-Stage Consumer Venture Capital">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -12,7 +12,7 @@
 </head>
 <body>
 
-  <!-- ═══════════════════════════════════════════════ TOP NAV ══ -->
+  <!-- TOP NAV -->
   <nav id="top-nav">
     <a href="#cover" class="nav-logo">
       <span class="logo-text">PRESS </span>
@@ -40,30 +40,41 @@
     </ul>
   </nav>
 
-  <!-- ═══════════════════════════════════ FLOATING NAV DOTS ══ -->
+  <!-- FLOATING NAV DOTS (15 sections) -->
   <div id="nav-dots" aria-hidden="true">
-    <button class="dot active" data-target="cover"             title="Cover"></button>
-    <button class="dot"        data-target="mission"           title="Mission"></button>
-    <button class="dot"        data-target="opportunity"       title="Opportunity"></button>
-    <button class="dot"        data-target="fund-design"       title="Fund Design"></button>
-    <button class="dot"        data-target="thesis"            title="Thesis"></button>
+    <button class="dot active" data-target="cover"              title="Cover"></button>
+    <button class="dot"        data-target="mission"            title="Mission"></button>
+    <button class="dot"        data-target="opportunity"        title="Opportunity"></button>
+    <button class="dot"        data-target="fund-design"        title="Fund Design"></button>
+    <button class="dot"        data-target="thesis"             title="Thesis"></button>
     <button class="dot"        data-target="portfolio-snapshot" title="Portfolio Overview"></button>
-    <button class="dot"        data-target="portfolio-a"       title="Portfolio A"></button>
-    <button class="dot"        data-target="portfolio-b"       title="Portfolio B"></button>
-    <button class="dot"        data-target="portfolio-c"       title="Portfolio C"></button>
-    <button class="dot"        data-target="snapfix"           title="Snapfix"></button>
-    <button class="dot"        data-target="team"              title="Team"></button>
-    <button class="dot"        data-target="venture-partners"  title="Venture Partners"></button>
-    <button class="dot"        data-target="lp-terms"          title="LP Terms"></button>
-    <button class="dot"        data-target="contact"           title="Contact"></button>
+    <button class="dot"        data-target="portfolio-health"   title="Health &amp; Well-Being"></button>
+    <button class="dot"        data-target="portfolio-travel"   title="Travel &amp; Experiential"></button>
+    <button class="dot"        data-target="spv"                title="SPV Investments"></button>
+    <button class="dot"        data-target="co-investors"       title="Co-Investors"></button>
+    <button class="dot"        data-target="team"               title="General Partners"></button>
+    <button class="dot"        data-target="meet-team"          title="Meet The Team"></button>
+    <button class="dot"        data-target="venture-partners"   title="Venture Partners"></button>
+    <button class="dot"        data-target="lp-terms"           title="LP Terms"></button>
+    <button class="dot"        data-target="contact"            title="Contact"></button>
   </div>
 
-  <!-- ══════════════════════════════════════════ SLIDE 1: COVER ══ -->
+  <!-- SLIDE 1: COVER (no page number) -->
   <section id="cover" class="section section-dark section-full">
     <div class="cover-bg-grid"></div>
     <div class="section-inner centered">
       <div class="cover-eyebrow reveal-up">Fund I · Opportunity Summary</div>
-      <div class="cover-logo reveal-up delay-1">
+
+      <!-- Large standalone SVG power-button logo mark -->
+      <div class="cover-logo-icon reveal-up delay-1">
+        <svg class="power-icon-hero" viewBox="0 0 20 20" fill="none" aria-label="Press On Ventures">
+          <path d="M10 2V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M6.5 4.2a7 7 0 1 0 7 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <!-- Wordmark -->
+      <div class="cover-wordmark reveal-up delay-2">
         <span class="logo-text">PRESS </span>
         <span class="logo-power-wrap logo-power-lg">
           <svg class="power-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
@@ -73,7 +84,9 @@
         </span>
         <span class="logo-text">N VENTURES</span>
       </div>
-      <p class="cover-sub reveal-up delay-2">Early-Stage Consumer Technology</p>
+
+      <p class="cover-sub reveal-up delay-2">Early-Stage Consumer</p>
+
       <div class="cover-stats reveal-up delay-3">
         <div class="cover-stat">
           <span class="cover-stat-num">$20M</span>
@@ -90,6 +103,7 @@
           <span class="cover-stat-lbl">Portfolio Companies</span>
         </div>
       </div>
+
       <div class="scroll-hint reveal-up delay-4">
         <span>Scroll to explore</span>
         <div class="scroll-arrow">
@@ -101,9 +115,10 @@
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════ SLIDE 2: MISSION ══ -->
+  <!-- SLIDE 2: MISSION -->
   <section id="mission" class="section section-beige">
-    <div class="section-inner">
+    <div class="slide-number">02</div>
+    <div class="section-inner centered-col">
       <div class="mission-banner aos" data-delay="0">
         <div class="mission-banner-logo">
           <span class="logo-text">PRESS </span>
@@ -116,12 +131,12 @@
           <span class="logo-text">N VENTURES</span>
         </div>
       </div>
-      <div class="mission-content">
+      <div class="mission-content" style="text-align: center;">
         <h1 class="mission-headline aos" data-delay="100">
-          Investing in resilient founders building transformative consumer technology businesses.
+          Investing in resilient founders building transformative consumer businesses.
         </h1>
-        <div class="mission-rule aos" data-delay="200"></div>
-        <div class="mission-statements">
+        <div class="mission-rule aos" data-delay="200" style="margin: 0 auto 32px;"></div>
+        <div class="mission-statements" style="margin: 0 auto;">
           <p class="mission-statement aos" data-delay="300">
             Consumer wallet share is shifting towards wellness, longevity, and experiences.
           </p>
@@ -133,8 +148,9 @@
     </div>
   </section>
 
-  <!-- ══════════════════════════════ SLIDE 3: OPPORTUNITY SUMMARY ══ -->
+  <!-- SLIDE 3: OPPORTUNITY SUMMARY -->
   <section id="opportunity" class="section section-white">
+    <div class="slide-number">03</div>
     <div class="section-inner split-layout">
       <div class="split-left aos" data-delay="0">
         <div class="eyebrow">Overview</div>
@@ -171,7 +187,7 @@
               <li>Investing from Pre-Seed through Series A</li>
               <li>Targeting 2% to 6% Ownership</li>
               <li>Partner with 30 to 35 Exceptional Founders</li>
-              <li>80/20 Split Between Consumer Technology and Adjacent Venture Scale Opportunities</li>
+              <li>80/20 Split Between Consumer Technology and Consumer Products</li>
             </ul>
           </div>
         </div>
@@ -194,30 +210,38 @@
     </div>
   </section>
 
-  <!-- ══════════════════════════════════ SLIDE 4: FUND DESIGN ══ -->
+  <!-- SLIDE 4: FUND DESIGN -->
   <section id="fund-design" class="section section-grey">
+    <div class="slide-number">04</div>
     <div class="section-inner">
-      <div class="section-header aos" data-delay="0">
+      <div class="section-header aos" data-delay="0" style="text-align: center;">
         <div class="eyebrow">Structure</div>
         <h2 class="section-title">Fund Design</h2>
-        <div class="title-rule"></div>
+        <div class="title-rule" style="margin: 0 auto 40px;"></div>
       </div>
       <div class="fund-layout">
         <div class="fund-visual-col aos" data-delay="100">
           <div class="fund-bar-wrap">
             <div class="fund-bar-chart">
-              <div class="fund-bar-segment fund-bar-follow">
+              <!-- flex-direction: column-reverse → first child renders at bottom, last at top -->
+              <!-- Visual order top→bottom: Deployed(30%) · Reserves(25%) · Available(45%) -->
+              <!-- So HTML order: Available, Reserves, Deployed -->
+              <div class="fund-bar-segment fund-bar-available">
                 <div class="fund-bar-fill"></div>
-                <div class="fund-bar-tag">Follow-On Reserve<br><strong>25% · $5M</strong></div>
+                <div class="fund-bar-tag">Available to Deploy<br><strong>45% · $9M</strong></div>
               </div>
-              <div class="fund-bar-segment fund-bar-initial">
+              <div class="fund-bar-segment fund-bar-reserves">
                 <div class="fund-bar-fill"></div>
-                <div class="fund-bar-tag">Initial Investments<br><strong>75% · $15M</strong></div>
+                <div class="fund-bar-tag">Reserves — follow-on<br><strong>25% · $5M</strong></div>
+              </div>
+              <div class="fund-bar-segment fund-bar-deployed">
+                <div class="fund-bar-fill"></div>
+                <div class="fund-bar-tag">Deployed — 10 cos<br><strong>30% · $6M</strong></div>
               </div>
             </div>
             <div class="fund-total-label">$20M Fund</div>
           </div>
-          <div class="fund-check-stat">
+          <div class="fund-check-stat" style="text-align: center;">
             <div class="count-up stat-xl" data-target="400" data-prefix="$" data-suffix="K">$400K</div>
             <div class="stat-label">Average First Check</div>
           </div>
@@ -235,10 +259,9 @@
             </div>
             <div class="cat-card cat-secondary">
               <div class="cat-pct">20%</div>
-              <h4>Leveraging Unique Access</h4>
+              <h4>Consumer Products</h4>
               <div class="cat-subs">
-                <span class="cat-sub">🛒 CPG</span>
-                <span class="cat-sub">💻 Enterprise Software</span>
+                <span class="cat-sub">🛒 CPG — "better for you" &amp; experiential products</span>
               </div>
             </div>
           </div>
@@ -247,13 +270,14 @@
     </div>
   </section>
 
-  <!-- ══════════════════════════════════ SLIDE 5: THESIS & FOCUS ══ -->
+  <!-- SLIDE 5: THESIS & FOCUS -->
   <section id="thesis" class="section section-dark">
+    <div class="slide-number slide-number-light">05</div>
     <div class="section-inner">
-      <div class="section-header aos" data-delay="0">
+      <div class="section-header aos" data-delay="0" style="text-align: center;">
         <div class="eyebrow light">Investment Strategy</div>
         <h2 class="section-title light">Thesis &amp; Focus</h2>
-        <div class="title-rule light"></div>
+        <div class="title-rule light" style="margin: 0 auto 40px;"></div>
       </div>
       <div class="thesis-grid">
         <div class="thesis-card aos" data-delay="100">
@@ -282,104 +306,62 @@
         </div>
         <div class="thesis-card aos" data-delay="300">
           <div class="thesis-num">03</div>
-          <div class="thesis-icon-wrap">🔑</div>
-          <h3>Leveraging Unique Access</h3>
+          <div class="thesis-icon-wrap">🛒</div>
+          <h3>Consumer Products</h3>
           <p class="thesis-intro">Proprietary deal flow from LP network and industry relationships.</p>
           <ul class="thesis-list">
-            <li>Alpha Consumer Products via LP Network</li>
+            <li>"Better For You" Consumer Goods</li>
+            <li>Experiential &amp; Premium Products</li>
             <li>Pricing Arbitrage Opportunities</li>
             <li>Proprietary &amp; Off-Market Deal Flow</li>
-            <li>Strategic Distribution Advantages</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════════════ SLIDE 6: PORTFOLIO SNAPSHOT ══ -->
+  <!-- SLIDE 6: PORTFOLIO SNAPSHOT -->
   <section id="portfolio-snapshot" class="section section-white">
+    <div class="slide-number">06</div>
     <div class="section-inner">
-      <div class="section-header aos" data-delay="0">
+      <div class="section-header aos" data-delay="0" style="text-align: center;">
         <div class="eyebrow">Portfolio</div>
         <h2 class="section-title">Proudly Partnered with <span class="number-accent">10</span> Founding Teams</h2>
-        <div class="title-rule"></div>
+        <div class="title-rule" style="margin: 0 auto 56px;"></div>
       </div>
-      <div class="donut-row">
-        <div class="donut-wrap aos" data-delay="100">
-          <div class="donut-chart" id="donut-1" data-percent="71">
-            <svg viewBox="0 0 120 120" class="donut-svg">
-              <circle cx="60" cy="60" r="48" class="donut-track"/>
-              <circle cx="60" cy="60" r="48" class="donut-ring" id="ring-1" stroke-dasharray="0 301.6" stroke-dashoffset="75.4"/>
-            </svg>
-            <div class="donut-inner">
-              <div class="donut-val count-up" data-target="356" data-prefix="$" data-suffix="K">$0K</div>
-              <div class="donut-sub">Avg Check</div>
-            </div>
-          </div>
-          <div class="donut-label">Average Check Size</div>
+      <!-- Clean stat scorecard — big numbers, count-up, no company legend -->
+      <div class="stats-scorecard aos" data-delay="100">
+        <div class="scorecard-stat">
+          <div class="scorecard-num count-up" data-target="356" data-prefix="$" data-suffix="K">$0K</div>
+          <div class="scorecard-label">Average Check Size</div>
         </div>
-        <div class="donut-wrap aos" data-delay="200">
-          <div class="donut-chart" id="donut-2" data-percent="66">
-            <svg viewBox="0 0 120 120" class="donut-svg">
-              <circle cx="60" cy="60" r="48" class="donut-track"/>
-              <circle cx="60" cy="60" r="48" class="donut-ring" id="ring-2" stroke-dasharray="0 301.6" stroke-dashoffset="75.4"/>
-            </svg>
-            <div class="donut-inner">
-              <div class="donut-val count-up" data-target="33" data-prefix="$" data-suffix="M">$0M</div>
-              <div class="donut-sub">Avg Valuation</div>
-            </div>
-          </div>
-          <div class="donut-label">Average Valuation</div>
+        <div class="scorecard-divider"></div>
+        <div class="scorecard-stat">
+          <div class="scorecard-num count-up" data-target="33" data-prefix="$" data-suffix="M">$0M</div>
+          <div class="scorecard-label">Average Valuation</div>
         </div>
-        <div class="donut-wrap aos" data-delay="300">
-          <div class="donut-chart" id="donut-3" data-percent="3">
-            <svg viewBox="0 0 120 120" class="donut-svg">
-              <circle cx="60" cy="60" r="48" class="donut-track"/>
-              <circle cx="60" cy="60" r="48" class="donut-ring donut-ring-small" id="ring-3" stroke-dasharray="0 301.6" stroke-dashoffset="75.4"/>
-            </svg>
-            <div class="donut-inner">
-              <div class="donut-val count-up" data-target="3" data-prefix="" data-suffix="%">0%</div>
-              <div class="donut-sub">Avg Ownership</div>
-            </div>
-          </div>
-          <div class="donut-label">Average Ownership</div>
+        <div class="scorecard-divider"></div>
+        <div class="scorecard-stat">
+          <div class="scorecard-num count-up" data-target="3" data-prefix="" data-suffix="%">0%</div>
+          <div class="scorecard-label">Average Ownership</div>
         </div>
-      </div>
-      <div class="company-legend aos" data-delay="400">
-        <span class="legend-co">Feno</span>
-        <span class="legend-sep">·</span>
-        <span class="legend-co">Recess</span>
-        <span class="legend-sep">·</span>
-        <span class="legend-co">SipMargs</span>
-        <span class="legend-sep">·</span>
-        <span class="legend-co">Skylark</span>
-        <span class="legend-sep">·</span>
-        <span class="legend-co">Snapfix</span>
-        <span class="legend-sep">·</span>
-        <span class="legend-co">Rhythm Sciences</span>
-        <span class="legend-sep">·</span>
-        <span class="legend-co">Jacob Bar</span>
-        <span class="legend-sep">·</span>
-        <span class="legend-co">10Beauty</span>
-        <span class="legend-sep">·</span>
-        <span class="legend-co">Cofertility</span>
-        <span class="legend-sep">·</span>
-        <span class="legend-co">Magic Story</span>
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════════════ SLIDE 7: PORTFOLIO A ══ -->
-  <section id="portfolio-a" class="section section-grey">
+  <!-- SLIDE 7: HEALTH & WELL-BEING (5 companies, alphabetical) -->
+  <section id="portfolio-health" class="section section-grey">
+    <div class="slide-number">07</div>
     <div class="section-inner">
-      <div class="section-header aos" data-delay="0">
-        <div class="eyebrow">Portfolio Companies · 01–03</div>
-        <h2 class="section-title">Beauty, Fertility &amp; Oral Health</h2>
-        <div class="title-rule"></div>
+      <div class="section-header aos" data-delay="0" style="text-align: center;">
+        <div class="eyebrow">Portfolio Companies · Group 01</div>
+        <h2 class="section-title">🏥 Health &amp; Well-Being</h2>
+        <div class="title-rule" style="margin: 0 auto 40px;"></div>
       </div>
-      <div class="pco-grid">
+      <div class="pco-grid-5">
 
-        <div class="pco-card aos" data-delay="100">
+        <!-- 10Beauty -->
+        <div class="pco-card aos" data-delay="80">
           <div class="pco-header" style="--accent: #e94560; --bg: #1a1a2e">
             <div class="pco-logo-circle" style="background: #e94560">10B</div>
             <div>
@@ -395,12 +377,14 @@
             <ul class="pco-bullets">
               <li>Robotic nail care technology for salons and retail</li>
               <li>Retail footprint: <strong>Nordstrom, Ulta, Marriott, Equinox</strong></li>
-              <li>Market: <strong>$14B SOM / $16B SAM / $19B TAM</strong></li>
             </ul>
+            <div class="pco-founders">Founders: <a href="#" class="founder-link">Founder Name</a></div>
+            <a href="#" class="pco-memo-link">Press On Ventures Deal Memo →</a>
           </div>
         </div>
 
-        <div class="pco-card aos" data-delay="200">
+        <!-- Cofertility -->
+        <div class="pco-card aos" data-delay="130">
           <div class="pco-header" style="--accent: #c77dff; --bg: #2d1b69">
             <div class="pco-logo-circle" style="background: #c77dff; color: #2d1b69">CO</div>
             <div>
@@ -417,12 +401,14 @@
             <ul class="pco-bullets">
               <li>Free egg freezing for donors who share with recipients</li>
               <li><strong>340,000+ donor applications</strong> — massive validation</li>
-              <li>Transforming fertility access nationwide</li>
             </ul>
+            <div class="pco-founders">Founders: <a href="#" class="founder-link">Founder Name</a>, <a href="#" class="founder-link">Founder Name</a></div>
+            <a href="#" class="pco-memo-link">Press On Ventures Deal Memo →</a>
           </div>
         </div>
 
-        <div class="pco-card aos" data-delay="300">
+        <!-- Feno -->
+        <div class="pco-card aos" data-delay="180">
           <div class="pco-header" style="--accent: #52b788; --bg: #1b4332">
             <div class="pco-logo-circle" style="background: #52b788; color: #1b4332">FE</div>
             <div>
@@ -439,26 +425,14 @@
             <ul class="pco-bullets">
               <li>AI-powered smart toothbrush with oral health analytics</li>
               <li><strong>3,000+ devices shipped</strong>, &lt;5% return rate</li>
-              <li>Building the leading consumer dental tech platform</li>
             </ul>
+            <div class="pco-founders">Founders: <a href="#" class="founder-link">Founder Name</a></div>
+            <a href="#" class="pco-memo-link">Press On Ventures Deal Memo →</a>
           </div>
         </div>
 
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════ SLIDE 8: PORTFOLIO B ══ -->
-  <section id="portfolio-b" class="section section-white">
-    <div class="section-inner">
-      <div class="section-header aos" data-delay="0">
-        <div class="eyebrow">Portfolio Companies · 04–06</div>
-        <h2 class="section-title">Food, Content &amp; Parenting</h2>
-        <div class="title-rule"></div>
-      </div>
-      <div class="pco-grid">
-
-        <div class="pco-card aos" data-delay="100">
+        <!-- Jacob Bar -->
+        <div class="pco-card aos" data-delay="230">
           <div class="pco-header" style="--accent: #fb923c; --bg: #7c2d12">
             <div class="pco-logo-circle" style="background: #fb923c; color: #7c2d12">JB</div>
             <div>
@@ -475,12 +449,53 @@
             <ul class="pco-bullets">
               <li>Premium protein bar with industry-leading nutritional profile</li>
               <li><strong>$1M+ revenue in first 90 days</strong></li>
-              <li>Board observer seat secured</li>
             </ul>
+            <div class="pco-founders">Founders: <a href="#" class="founder-link">Founder Name</a></div>
+            <a href="#" class="pco-memo-link">Press On Ventures Deal Memo →</a>
           </div>
         </div>
 
-        <div class="pco-card aos" data-delay="200">
+        <!-- Rhythm Science -->
+        <div class="pco-card aos" data-delay="280">
+          <div class="pco-header" style="--accent: #818cf8; --bg: #1e1b4b">
+            <div class="pco-logo-circle" style="background: #818cf8; color: #1e1b4b">RS</div>
+            <div>
+              <h3 class="pco-name">Rhythm Science</h3>
+              <p class="pco-tag">AI Cardiac Care Platform</p>
+            </div>
+          </div>
+          <div class="pco-body">
+            <div class="pco-badges">
+              <span class="badge badge-amount">$300K Equity</span>
+              <span class="badge badge-cap">$30M Post</span>
+              <span class="badge badge-ownership">1% Ownership</span>
+            </div>
+            <ul class="pco-bullets">
+              <li>AI-powered cardiac monitoring and care coordination</li>
+              <li><strong>~$8.5M ARR</strong> with ~80% gross margins</li>
+            </ul>
+            <div class="pco-founders">Founders: <a href="#" class="founder-link">Founder Name</a></div>
+            <a href="#" class="pco-memo-link">Press On Ventures Deal Memo →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 8: TRAVEL & EXPERIENTIAL (5 companies, alphabetical) -->
+  <section id="portfolio-travel" class="section section-white">
+    <div class="slide-number">08</div>
+    <div class="section-inner">
+      <div class="section-header aos" data-delay="0" style="text-align: center;">
+        <div class="eyebrow">Portfolio Companies · Group 02</div>
+        <h2 class="section-title">✈️ Travel &amp; Experiential</h2>
+        <div class="title-rule" style="margin: 0 auto 40px;"></div>
+      </div>
+      <div class="pco-grid-5">
+
+        <!-- Magic Story -->
+        <div class="pco-card aos" data-delay="80">
           <div class="pco-header" style="--accent: #60a5fa; --bg: #1e3a5f">
             <div class="pco-logo-circle" style="background: #60a5fa; color: #1e3a5f">MS</div>
             <div>
@@ -497,12 +512,14 @@
             <ul class="pco-bullets">
               <li>AI-generated personalized storybooks for children</li>
               <li><strong>~$6M ARR</strong> — strong early revenue traction</li>
-              <li>Expanding into interactive and animated formats</li>
             </ul>
+            <div class="pco-founders">Founders: <a href="#" class="founder-link">Founder Name</a></div>
+            <a href="#" class="pco-memo-link">Press On Ventures Deal Memo →</a>
           </div>
         </div>
 
-        <div class="pco-card aos" data-delay="300">
+        <!-- Recess -->
+        <div class="pco-card aos" data-delay="130">
           <div class="pco-header" style="--accent: #2dd4bf; --bg: #134e4a">
             <div class="pco-logo-circle" style="background: #2dd4bf; color: #134e4a">RE</div>
             <div>
@@ -518,49 +535,15 @@
             </div>
             <ul class="pco-bullets">
               <li>AI-powered platform supporting parents at every stage</li>
-              <li><strong>64M US parents</strong> addressable; $4.8B TAM</li>
               <li>Comprehensive parenting intelligence platform</li>
             </ul>
+            <div class="pco-founders">Founders: <a href="#" class="founder-link">Founder Name</a></div>
+            <a href="#" class="pco-memo-link">Press On Ventures Deal Memo →</a>
           </div>
         </div>
 
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════ SLIDE 9: PORTFOLIO C ══ -->
-  <section id="portfolio-c" class="section section-grey">
-    <div class="section-inner">
-      <div class="section-header aos" data-delay="0">
-        <div class="eyebrow">Portfolio Companies · 07–09</div>
-        <h2 class="section-title">Health Tech, Beverages &amp; Travel</h2>
-        <div class="title-rule"></div>
-      </div>
-      <div class="pco-grid">
-
-        <div class="pco-card aos" data-delay="100">
-          <div class="pco-header" style="--accent: #818cf8; --bg: #1e1b4b">
-            <div class="pco-logo-circle" style="background: #818cf8; color: #1e1b4b">RS</div>
-            <div>
-              <h3 class="pco-name">Rhythm Sciences</h3>
-              <p class="pco-tag">AI Cardiac Care Platform</p>
-            </div>
-          </div>
-          <div class="pco-body">
-            <div class="pco-badges">
-              <span class="badge badge-amount">$300K Equity</span>
-              <span class="badge badge-cap">$30M Post</span>
-              <span class="badge badge-ownership">1% Ownership</span>
-            </div>
-            <ul class="pco-bullets">
-              <li>AI-powered cardiac monitoring and care coordination</li>
-              <li><strong>~$8.5M ARR with ~80% gross margins</strong></li>
-              <li>Direct equity — highest-conviction position in portfolio</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="pco-card aos" data-delay="200">
+        <!-- SipMargs -->
+        <div class="pco-card aos" data-delay="180">
           <div class="pco-header" style="--accent: #fbbf24; --bg: #78350f">
             <div class="pco-logo-circle" style="background: #fbbf24; color: #78350f">SM</div>
             <div>
@@ -576,13 +559,15 @@
             </div>
             <ul class="pco-bullets">
               <li>Premium ready-to-drink margarita brand</li>
-              <li>Celebrity partner: <strong>Alix Earle</strong></li>
-              <li>Distribution via <strong>Southern Glazer's</strong> (largest US distributor)</li>
+              <li>Celebrity partner: <strong>Alix Earle</strong> · Distribution via <strong>Southern Glazer's</strong></li>
             </ul>
+            <div class="pco-founders">Founders: <a href="#" class="founder-link">Founder Name</a></div>
+            <a href="#" class="pco-memo-link">Press On Ventures Deal Memo →</a>
           </div>
         </div>
 
-        <div class="pco-card aos" data-delay="300">
+        <!-- Skylark -->
+        <div class="pco-card aos" data-delay="230">
           <div class="pco-header" style="--accent: #d4a853; --bg: #1c1917">
             <div class="pco-logo-circle" style="background: #d4a853; color: #1c1917">SL</div>
             <div>
@@ -598,27 +583,15 @@
             </div>
             <ul class="pco-bullets">
               <li>Marketplace for luxury travel at significant discounts</li>
-              <li>Proprietary access to unsold premium travel inventory</li>
               <li>Capturing the underserved affluent travel consumer</li>
             </ul>
+            <div class="pco-founders">Founders: <a href="#" class="founder-link">Founder Name</a></div>
+            <a href="#" class="pco-memo-link">Press On Ventures Deal Memo →</a>
           </div>
         </div>
 
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════ SLIDE 10: SNAPFIX ══ -->
-  <section id="snapfix" class="section section-white">
-    <div class="section-inner">
-      <div class="section-header aos" data-delay="0">
-        <div class="eyebrow">Portfolio Company · 10</div>
-        <h2 class="section-title">Property Technology</h2>
-        <div class="title-rule"></div>
-      </div>
-      <div class="pco-grid pco-grid-featured">
-
-        <div class="pco-card pco-card-wide aos" data-delay="100">
+        <!-- Snapfix -->
+        <div class="pco-card aos" data-delay="280">
           <div class="pco-header" style="--accent: #38bdf8; --bg: #0f172a">
             <div class="pco-logo-circle" style="background: #38bdf8; color: #0f172a">SF</div>
             <div>
@@ -633,19 +606,11 @@
               <span class="badge badge-ownership">5% Ownership</span>
             </div>
             <ul class="pco-bullets">
-              <li>End-to-end property maintenance management via photo-first workflow</li>
-              <li>Streamlining facilities management for commercial and residential properties</li>
+              <li>End-to-end property maintenance via photo-first workflow</li>
               <li>Strong traction in multi-unit property management</li>
-              <li>Expanding across US and international markets</li>
-              <li>Technology-driven approach reduces resolution time and cost dramatically</li>
             </ul>
-          </div>
-        </div>
-
-        <div class="portfolio-complete-badge aos" data-delay="250">
-          <div class="pcb-inner">
-            <div class="pcb-num count-up" data-target="10" data-suffix="">0</div>
-            <div class="pcb-label">Portfolio Companies<br>Fully Deployed</div>
+            <div class="pco-founders">Founders: <a href="#" class="founder-link">Founder Name</a></div>
+            <a href="#" class="pco-memo-link">Press On Ventures Deal Memo →</a>
           </div>
         </div>
 
@@ -653,20 +618,146 @@
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════ SLIDE 11: TEAM ══ -->
-  <section id="team" class="section section-dark">
+  <!-- SLIDE 9: SPV INVESTMENTS -->
+  <section id="spv" class="section section-grey">
+    <div class="slide-number">09</div>
     <div class="section-inner">
-      <div class="section-header aos" data-delay="0">
+      <div class="section-header aos" data-delay="0" style="text-align: center;">
+        <div class="eyebrow">Special Purpose Vehicles</div>
+        <h2 class="section-title">SPV Investments</h2>
+        <div class="title-rule" style="margin: 0 auto 16px;"></div>
+        <p class="section-sub-note aos" data-delay="50">SPVs are separate investment vehicles from the main fund, enabling targeted co-investment alongside Press On Ventures.</p>
+      </div>
+      <div class="pco-grid" style="margin-top: 48px;">
+
+        <!-- SPV 1: Snapfix -->
+        <div class="pco-card aos" data-delay="100">
+          <div class="pco-header" style="--accent: #38bdf8; --bg: #0f172a">
+            <div class="pco-logo-circle" style="background: #38bdf8; color: #0f172a">SF</div>
+            <div>
+              <h3 class="pco-name">SPV 1 — Snapfix</h3>
+              <p class="pco-tag">Property Maintenance Platform</p>
+            </div>
+          </div>
+          <div class="pco-body">
+            <div class="pco-badges">
+              <span class="badge badge-amount">$250K SAFE</span>
+              <span class="badge badge-cap">$5M Cap</span>
+              <span class="badge badge-ownership">5% Ownership</span>
+            </div>
+            <ul class="pco-bullets">
+              <li>End-to-end property maintenance management via photo-first workflow</li>
+              <li>Separate SPV alongside the fund's main position</li>
+            </ul>
+            <a href="#" class="pco-memo-link">Press On Ventures Deal Memo →</a>
+          </div>
+        </div>
+
+        <!-- SPV 2: Telly (placeholder) -->
+        <div class="pco-card spv-placeholder-card aos" data-delay="200">
+          <div class="pco-header" style="--accent: #94a3b8; --bg: #1e293b">
+            <div class="pco-logo-circle" style="background: #94a3b8; color: #1e293b">TV</div>
+            <div>
+              <h3 class="pco-name">SPV 2 — Telly</h3>
+              <p class="pco-tag">Details Coming Soon</p>
+            </div>
+          </div>
+          <div class="pco-body">
+            <div class="pco-badges">
+              <span class="badge badge-cap">Pending</span>
+            </div>
+            <ul class="pco-bullets">
+              <li>Investment details to be announced</li>
+              <li>Additional co-investment opportunity via Press On Ventures</li>
+            </ul>
+            <a href="#" class="pco-memo-link">Press On Ventures Deal Memo →</a>
+          </div>
+        </div>
+
+        <!-- SPV 3: 10Beauty -->
+        <div class="pco-card aos" data-delay="300">
+          <div class="pco-header" style="--accent: #e94560; --bg: #1a1a2e">
+            <div class="pco-logo-circle" style="background: #e94560">10B</div>
+            <div>
+              <h3 class="pco-name">SPV 3 — 10Beauty</h3>
+              <p class="pco-tag">Automated Manicure Technology</p>
+            </div>
+          </div>
+          <div class="pco-body">
+            <div class="pco-badges">
+              <span class="badge badge-amount">$1.3M SPV</span>
+              <span class="badge badge-cap">$150M Cap</span>
+              <span class="badge badge-ownership">1.2% Ownership</span>
+            </div>
+            <ul class="pco-bullets">
+              <li>SPV investment via SAFE at $150M cap</li>
+              <li>In addition to fund's direct $500K investment</li>
+            </ul>
+            <a href="#" class="pco-memo-link">Press On Ventures Deal Memo →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 10: CO-INVESTING WITH WORLD CLASS FIRMS -->
+  <section id="co-investors" class="section section-white">
+    <div class="slide-number">10</div>
+    <div class="section-inner">
+      <div class="section-header aos" data-delay="0" style="text-align: center;">
+        <div class="eyebrow">Our Network</div>
+        <h2 class="section-title">Co-Investing with World Class Firms</h2>
+        <div class="title-rule" style="margin: 0 auto 56px;"></div>
+      </div>
+      <div class="coinvestors-grid aos" data-delay="100">
+        <div class="coinvestor-card">
+          <span class="coinvestor-name">Upfront Ventures</span>
+        </div>
+        <div class="coinvestor-card">
+          <span class="coinvestor-name">True Ventures</span>
+        </div>
+        <div class="coinvestor-card">
+          <span class="coinvestor-name">Bold Capital</span>
+        </div>
+        <div class="coinvestor-card">
+          <span class="coinvestor-name">Share Ventures</span>
+        </div>
+        <div class="coinvestor-card">
+          <span class="coinvestor-name">Female Founders Fund</span>
+        </div>
+        <div class="coinvestor-card">
+          <span class="coinvestor-name">Palm Tree Crew</span>
+        </div>
+        <div class="coinvestor-card coinvestor-more">
+          <span class="coinvestor-name">+ More</span>
+        </div>
+        <div class="coinvestor-card coinvestor-more">
+          <span class="coinvestor-name">+ More</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 11: GENERAL PARTNERS -->
+  <section id="team" class="section section-dark">
+    <div class="slide-number slide-number-light">11</div>
+    <div class="section-inner">
+      <div class="section-header aos" data-delay="0" style="text-align: center;">
         <div class="eyebrow light">The Team</div>
         <h2 class="section-title light">General Partners</h2>
-        <div class="title-rule light"></div>
+        <div class="title-rule light" style="margin: 0 auto 40px;"></div>
       </div>
       <div class="team-grid">
         <div class="team-card aos" data-delay="100">
-          <div class="team-photo">WL</div>
+          <div class="team-photo team-photo-lg">WL</div>
           <h3>Willie Litvack</h3>
           <h4>Founder &amp; General Partner</h4>
-          <p>Serial entrepreneur with 10+ years building consumer technology companies. Founded SquadUP, scaling it to significant profitability before a successful private equity exit. Also founded TrialTech Medical, a second venture built and sold concurrently. Deep expertise in marketplace businesses, consumer technology, and go-to-market strategy. MBA-equipped operator with an investor's eye for durable business models.</p>
+          <div class="team-brand-logos">
+            <div class="brand-logo-placeholder">SquadUP</div>
+            <div class="brand-logo-placeholder">TrialTech Medical</div>
+            <div class="brand-logo-placeholder">Press On Ventures</div>
+          </div>
           <div class="team-tags">
             <span class="team-tag">Consumer Tech</span>
             <span class="team-tag">Marketplaces</span>
@@ -674,10 +765,14 @@
           </div>
         </div>
         <div class="team-card aos" data-delay="200">
-          <div class="team-photo">ST</div>
+          <div class="team-photo team-photo-lg">ST</div>
           <h3>Sean Tolkin</h3>
           <h4>Founder &amp; General Partner</h4>
-          <p>Deep expertise in hospitality and travel technology with extensive senior-level industry relationships. Brings proprietary deal flow and unique access to the consumer travel and hospitality sector. Strategic operator with a network spanning luxury travel, major hospitality brands, and consumer experience companies. Focused on identifying technology-first businesses transforming how people travel and experience the world.</p>
+          <div class="team-brand-logos">
+            <div class="brand-logo-placeholder">Hospitality</div>
+            <div class="brand-logo-placeholder">Travel</div>
+            <div class="brand-logo-placeholder">Press On Ventures</div>
+          </div>
           <div class="team-tags">
             <span class="team-tag">Travel Tech</span>
             <span class="team-tag">Hospitality</span>
@@ -704,48 +799,87 @@
     </div>
   </section>
 
-  <!-- ═══════════════════════════ SLIDE 12: VENTURE PARTNERS ══ -->
-  <section id="venture-partners" class="section section-beige">
+  <!-- SLIDE 12: MEET THE TEAM -->
+  <section id="meet-team" class="section section-beige">
+    <div class="slide-number">12</div>
     <div class="section-inner">
-      <div class="section-header aos" data-delay="0">
+      <div class="section-header aos" data-delay="0" style="text-align: center;">
+        <div class="eyebrow">The Full Team</div>
+        <h2 class="section-title">Meet The Team</h2>
+        <div class="title-rule" style="margin: 0 auto 40px;"></div>
+      </div>
+      <div class="meet-team-grid">
+        <div class="meet-team-card aos" data-delay="100">
+          <div class="meet-team-photo">ML</div>
+          <h3 class="meet-team-name">Madeline Litvack</h3>
+          <h4 class="meet-team-role">Head of Product</h4>
+          <p class="meet-team-bio">Leads internal tooling and portfolio company support across the Press On Ventures ecosystem.</p>
+          <div class="meet-team-tags">
+            <span class="meet-team-tag">Product</span>
+            <span class="meet-team-tag">Portco Support</span>
+            <span class="meet-team-tag">Internal Tools</span>
+          </div>
+        </div>
+        <div class="meet-team-card meet-team-placeholder-card aos" data-delay="200">
+          <div class="meet-team-photo">TM</div>
+          <h3 class="meet-team-name">Team Member</h3>
+          <h4 class="meet-team-role">Role — Coming Soon</h4>
+          <p class="meet-team-bio">Additional team member details to be announced.</p>
+        </div>
+        <div class="meet-team-card meet-team-placeholder-card aos" data-delay="300">
+          <div class="meet-team-photo">TM</div>
+          <h3 class="meet-team-name">Team Member</h3>
+          <h4 class="meet-team-role">Role — Coming Soon</h4>
+          <p class="meet-team-bio">Additional team member details to be announced.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 13: VENTURE PARTNERS -->
+  <section id="venture-partners" class="section section-grey">
+    <div class="slide-number">13</div>
+    <div class="section-inner">
+      <div class="section-header aos" data-delay="0" style="text-align: center;">
         <div class="eyebrow">Network</div>
         <h2 class="section-title">Venture Partners &amp; Advisors</h2>
-        <div class="title-rule"></div>
+        <div class="title-rule" style="margin: 0 auto 20px;"></div>
       </div>
-      <div class="vp-intro-text aos" data-delay="100">
+      <div class="vp-intro-text aos" data-delay="100" style="text-align: center; max-width: 720px; margin: 0 auto 48px;">
         <p>Press On Ventures is supported by a curated network of venture partners and advisors bringing deep expertise across our core investment focus areas — driving proprietary deal flow, portfolio value creation, and LP relationships.</p>
       </div>
       <div class="vp-grid">
         <div class="vp-card aos" data-delay="150">
-          <div class="vp-avatar">VP</div>
+          <div class="vp-avatar vp-avatar-lg">VP</div>
           <h4>Venture Partner</h4>
           <span class="vp-focus-tag">Consumer Health &amp; Wellness</span>
           <p>Industry veteran with deep expertise in digital health, telemedicine, and wellness technology. Brings proprietary deal flow and hands-on portfolio support in the health and longevity space.</p>
         </div>
         <div class="vp-card aos" data-delay="200">
-          <div class="vp-avatar">VP</div>
+          <div class="vp-avatar vp-avatar-lg">VP</div>
           <h4>Venture Partner</h4>
           <span class="vp-focus-tag">Travel &amp; Hospitality</span>
           <p>Former executive at a leading luxury hospitality brand with deep operator experience. Provides strategic guidance, board-level introductions, and unmatched industry relationships.</p>
         </div>
         <div class="vp-card aos" data-delay="250">
-          <div class="vp-avatar">VP</div>
+          <div class="vp-avatar vp-avatar-lg">VP</div>
           <h4>Venture Partner</h4>
           <span class="vp-focus-tag">Consumer Technology</span>
           <p>Serial entrepreneur with multiple successful exits in consumer technology. Active in sourcing, diligence support, and founder mentorship across the portfolio.</p>
         </div>
       </div>
-      <p class="vp-footer-note aos" data-delay="350">Full venture partner and advisory network details available upon request.</p>
+      <p class="vp-footer-note aos" data-delay="350" style="text-align: center;">Full venture partner and advisory network details available upon request.</p>
     </div>
   </section>
 
-  <!-- ══════════════════════════════════ SLIDE 13: LP TERMS ══ -->
-  <section id="lp-terms" class="section section-grey">
+  <!-- SLIDE 14: LP TERMS -->
+  <section id="lp-terms" class="section section-white">
+    <div class="slide-number">14</div>
     <div class="section-inner">
-      <div class="section-header aos" data-delay="0">
+      <div class="section-header aos" data-delay="0" style="text-align: center;">
         <div class="eyebrow">Fund Economics</div>
         <h2 class="section-title">LP Terms</h2>
-        <div class="title-rule"></div>
+        <div class="title-rule" style="margin: 0 auto 40px;"></div>
       </div>
       <div class="terms-grid">
         <div class="term-card aos" data-delay="100">
@@ -832,8 +966,9 @@
     </div>
   </section>
 
-  <!-- ══════════════════════════════════ SLIDE 14: CONTACT ══ -->
+  <!-- SLIDE 15: CONTACT -->
   <section id="contact" class="section section-dark section-full">
+    <div class="slide-number slide-number-light">15</div>
     <div class="contact-bg-accent"></div>
     <div class="section-inner centered">
       <div class="contact-logo aos" data-delay="0">

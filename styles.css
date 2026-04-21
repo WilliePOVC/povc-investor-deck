@@ -1642,3 +1642,437 @@ img { max-width: 100%; display: block; }
     height: 1px;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   NEW STYLES — Comprehensive Deck Update
+═══════════════════════════════════════════════════════════════ */
+
+/* ── CENTERED COLUMN LAYOUT (for mission etc.) ─────────────── */
+.section-inner.centered-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* ── SLIDE PAGE NUMBERS ────────────────────────────────────── */
+.slide-number {
+  position: absolute;
+  bottom: 32px;
+  right: 48px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  color: rgba(41,41,41,0.2);
+  z-index: 10;
+}
+
+.slide-number-light {
+  color: rgba(255,255,255,0.18);
+}
+
+/* ── COVER: LARGE SVG ICON + WORDMARK ──────────────────────── */
+.cover-logo-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+.power-icon-hero {
+  width: 80px;
+  height: 80px;
+  color: rgba(255,255,255,0.9);
+}
+
+.cover-wordmark {
+  font-size: clamp(1.6rem, 4vw, 3rem);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+  line-height: 1;
+}
+
+.cover-wordmark .logo-text {
+  font-size: inherit;
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
+
+.cover-wordmark .power-icon {
+  width: 0.75em;
+  height: 0.75em;
+}
+
+/* ── PORTFOLIO SNAPSHOT: STATS SCORECARD ───────────────────── */
+.stats-scorecard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 56px 48px;
+  background: var(--grey);
+  border-radius: 24px;
+  flex-wrap: wrap;
+}
+
+.scorecard-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 56px;
+}
+
+.scorecard-num {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  color: var(--dark);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.scorecard-label {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(41,41,41,0.45);
+}
+
+.scorecard-divider {
+  width: 1px;
+  height: 80px;
+  background: rgba(41,41,41,0.1);
+  flex-shrink: 0;
+}
+
+/* ── 5-CARD PORTFOLIO GRID ─────────────────────────────────── */
+.pco-grid-5 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.pco-grid-5 .pco-card {
+  flex: 0 0 calc(33.333% - 14px);
+  max-width: calc(33.333% - 14px);
+  min-width: 280px;
+}
+
+/* ── PORTFOLIO CARD: FOUNDERS + MEMO LINK ──────────────────── */
+.pco-founders {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: rgba(41,41,41,0.5);
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid rgba(41,41,41,0.06);
+  line-height: 1.5;
+}
+
+.founder-link {
+  color: var(--dark);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.founder-link:hover {
+  opacity: 0.6;
+}
+
+.pco-memo-link {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--dark);
+  letter-spacing: 0.02em;
+  margin-top: 10px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity 0.2s;
+}
+
+.pco-memo-link:hover {
+  opacity: 0.6;
+}
+
+/* ── FUND BAR: 3-SEGMENT DESIGN ────────────────────────────── */
+.fund-bar-deployed {
+  flex: 30;
+  background: var(--dark);
+}
+
+.fund-bar-reserves {
+  flex: 25;
+  background: rgba(41,41,41,0.45);
+  border-top: 1px solid rgba(255,255,255,0.12);
+}
+
+.fund-bar-available {
+  flex: 45;
+  background: rgba(41,41,41,0.15);
+  border-top: 1px solid rgba(41,41,41,0.12);
+}
+
+.fund-bar-deployed .fund-bar-fill  { background: var(--dark); }
+.fund-bar-reserves .fund-bar-fill  { background: rgba(41,41,41,0.45); }
+.fund-bar-available .fund-bar-fill { background: rgba(41,41,41,0.15); }
+
+/* ── SPV SECTION ───────────────────────────────────────────── */
+.section-sub-note {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: rgba(41,41,41,0.55);
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.spv-placeholder-card .pco-header {
+  opacity: 0.8;
+}
+
+/* ── CO-INVESTORS GRID ─────────────────────────────────────── */
+.coinvestors-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.coinvestor-card {
+  background: var(--grey);
+  border: 1px solid rgba(41,41,41,0.08);
+  border-radius: 16px;
+  padding: 32px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 100px;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.coinvestor-card:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  transform: translateY(-2px);
+}
+
+.coinvestor-name {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--dark);
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+}
+
+.coinvestor-more {
+  background: transparent;
+  border-style: dashed;
+  opacity: 0.5;
+}
+
+.coinvestor-more .coinvestor-name {
+  color: rgba(41,41,41,0.4);
+}
+
+/* ── GENERAL PARTNERS: LARGER PHOTOS + BRAND LOGOS ─────────── */
+.team-photo-lg {
+  width: 120px !important;
+  height: 120px !important;
+  font-size: 1.6rem !important;
+  margin-bottom: 28px;
+}
+
+.team-brand-logos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+  justify-content: flex-start;
+}
+
+.brand-logo-placeholder {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Remove old paragraph style from team cards */
+.team-card p {
+  display: none;
+}
+
+/* ── MEET THE TEAM SECTION ─────────────────────────────────── */
+.meet-team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  justify-items: center;
+}
+
+.meet-team-card {
+  background: #fff;
+  border: 1px solid rgba(41,41,41,0.08);
+  border-radius: 20px;
+  padding: 36px 28px;
+  text-align: center;
+  transition: box-shadow 0.3s, transform 0.3s;
+  width: 100%;
+}
+
+.meet-team-card:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.09);
+  transform: translateY(-2px);
+}
+
+.meet-team-photo {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: var(--beige);
+  border: 2px solid rgba(41,41,41,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: rgba(41,41,41,0.5);
+  margin: 0 auto 20px;
+  letter-spacing: 0.05em;
+}
+
+.meet-team-name {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--dark);
+  margin-bottom: 4px;
+  letter-spacing: -0.01em;
+}
+
+.meet-team-role {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.76rem;
+  color: rgba(41,41,41,0.4);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.meet-team-bio {
+  font-size: 0.85rem;
+  line-height: 1.65;
+  color: rgba(41,41,41,0.6);
+  margin-bottom: 16px;
+}
+
+.meet-team-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+}
+
+.meet-team-tag {
+  font-size: 0.68rem;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: var(--grey);
+  border: 1px solid rgba(41,41,41,0.08);
+  color: rgba(41,41,41,0.55);
+  letter-spacing: 0.04em;
+}
+
+.meet-team-placeholder-card {
+  opacity: 0.6;
+}
+
+/* ── VENTURE PARTNERS: LARGER AVATARS ──────────────────────── */
+.vp-avatar-lg {
+  width: 96px !important;
+  height: 96px !important;
+  font-size: 1.1rem !important;
+  margin-bottom: 20px;
+}
+
+/* ── RESPONSIVE: NEW SECTIONS ──────────────────────────────── */
+@media (max-width: 960px) {
+  .pco-grid-5 .pco-card {
+    flex: 0 0 calc(50% - 10px);
+    max-width: calc(50% - 10px);
+  }
+
+  .coinvestors-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .meet-team-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .pco-grid-5 .pco-card {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .stats-scorecard {
+    flex-direction: column;
+    gap: 32px;
+    padding: 40px 24px;
+  }
+
+  .scorecard-divider {
+    width: 40px;
+    height: 1px;
+  }
+
+  .scorecard-stat {
+    padding: 0;
+  }
+
+  .coinvestors-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .meet-team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .power-icon-hero {
+    width: 56px;
+    height: 56px;
+  }
+
+  .slide-number {
+    bottom: 20px;
+    right: 24px;
+  }
+}

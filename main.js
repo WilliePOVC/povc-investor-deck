@@ -279,7 +279,8 @@ function initCardStagger() {
 function initDotColors() {
   const darkSections  = ['cover', 'thesis', 'team', 'contact'];
   const lightSections = ['mission', 'opportunity', 'fund-design', 'portfolio-snapshot',
-                         'portfolio-a', 'portfolio-b', 'portfolio-c', 'snapfix',
+                         'portfolio-health', 'portfolio-travel', 'spv',
+                         'co-investors', 'meet-team',
                          'venture-partners', 'lp-terms'];
 
   const dotsEl = qs('#nav-dots');
