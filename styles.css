@@ -2037,6 +2037,19 @@ a.coinvestor-logo-card:hover .coinvestor-logo-img {
   opacity: 1;
 }
 
+/* ── GP cards: clickable LinkedIn links ─────────────────── */
+a.team-card-link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+a.team-card-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.15);
+}
+
 /* ── GENERAL PARTNERS: LARGER PHOTOS + BRAND LOGOS ─────────── */
 .team-photo-lg {
   width: 120px !important;
