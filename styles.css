@@ -1927,22 +1927,27 @@ img { max-width: 100%; display: block; }
   margin: 0 auto;
 }
 
-/* 5-column grid with equal gaps */
+/* 5/5/4 grid — rows 1-2 are 5-col, row 3 is 4 logos centered */
 .coinvestors-logo-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 32px 24px;
-  max-width: 920px;
+  grid-template-columns: repeat(10, 1fr);  /* 10-col for centering math */
+  gap: 36px 0;
+  max-width: 940px;
   margin: 0 auto;
   align-items: center;
   justify-items: center;
 }
 
-/* Last row (4 logos): center within the 5-col grid */
-.coinvestor-logo-card:nth-child(11) { grid-column: 1; }
-.coinvestor-logo-card:nth-child(12) { grid-column: 2; }
-.coinvestor-logo-card:nth-child(13) { grid-column: 4; }
-.coinvestor-logo-card:nth-child(14) { grid-column: 5; }
+/* Row 1 & 2: each logo spans 2 cols = 5 per row */
+.coinvestor-logo-card {
+  grid-column: span 2;
+}
+
+/* Row 3 (items 11-14): offset by 1 col to center 4 logos in 10-col grid */
+.coinvestor-logo-card:nth-child(11) { grid-column: 2 / span 2; }
+.coinvestor-logo-card:nth-child(12) { grid-column: 4 / span 2; }
+.coinvestor-logo-card:nth-child(13) { grid-column: 6 / span 2; }
+.coinvestor-logo-card:nth-child(14) { grid-column: 8 / span 2; }
 
 a.coinvestor-logo-card {
   display: flex;
@@ -1951,6 +1956,7 @@ a.coinvestor-logo-card {
   text-decoration: none;
   cursor: pointer;
   padding: 8px;
+  min-height: 64px;  /* consistent row height for vertical rhythm */
   box-sizing: border-box;
   transition: transform 0.2s;
 }
@@ -1958,42 +1964,68 @@ a.coinvestor-logo-card {
 /* Monochrome: logos pre-recolored to #292929 in PNG.
    No CSS filter needed — clean rendering with transparency intact. */
 .coinvestor-logo-img {
-  height: 44px;
+  height: 48px;
   width: auto;
-  max-width: 160px;
+  max-width: 170px;
   object-fit: contain;
   transition: opacity 0.3s;
 }
 
-/* ── Optical sizing per logo type ── */
-/* Wordmark-only logos: slightly taller for visual balance */
-[data-logo="lerer-hippeau"] .coinvestor-logo-img,
-[data-logo="initialized"] .coinvestor-logo-img,
+/* ── Optical sizing: equalize visual weight ── */
+
+/* Thin wordmarks: boost size for optical balance */
+[data-logo="lerer-hippeau"] .coinvestor-logo-img {
+  height: 58px;
+  max-width: 190px;
+}
+
+[data-logo="initialized"] .coinvestor-logo-img {
+  height: 54px;
+  max-width: 180px;
+}
+
 [data-logo="offline"] .coinvestor-logo-img {
+  height: 54px;
+  max-width: 170px;
+}
+
+/* Tall logomarks: slightly larger to balance */
+[data-logo="upfront"] .coinvestor-logo-img {
   height: 52px;
 }
 
-/* Logomark+wordmark combos at standard size */
-[data-logo="upfront"] .coinvestor-logo-img,
-[data-logo="bold-capital"] .coinvestor-logo-img,
-[data-logo="courtside-vc"] .coinvestor-logo-img {
-  height: 48px;
+[data-logo="bold-capital"] .coinvestor-logo-img {
+  height: 54px;
 }
 
-/* Wide/horizontal logos: constrain width more */
+[data-logo="point72"] .coinvestor-logo-img {
+  height: 58px;
+}
+
+[data-logo="courtside-vc"] .coinvestor-logo-img {
+  height: 56px;
+  max-width: 190px;
+}
+
+[data-logo="bbg-ventures"] .coinvestor-logo-img {
+  height: 54px;
+  max-width: 180px;
+}
+
+[data-logo="red-sea"] .coinvestor-logo-img {
+  height: 54px;
+  max-width: 170px;
+}
+
+/* Wide horizontal logos: constrain width, let height flex */
 [data-logo="palm-tree-crew"] .coinvestor-logo-img {
-  height: 40px;
-  max-width: 150px;
+  height: 44px;
+  max-width: 160px;
 }
 
 [data-logo="bam-ventures"] .coinvestor-logo-img {
-  height: 40px;
-  max-width: 150px;
-}
-
-/* Point72: match top-row scale */
-[data-logo="point72"] .coinvestor-logo-img {
-  height: 52px;
+  height: 44px;
+  max-width: 160px;
 }
 
 /* Hover: reveal original brand colors (JS swaps to -color.png) */
@@ -2147,15 +2179,17 @@ a.coinvestor-logo-card:hover .coinvestor-logo-img {
   }
 
   .coinvestors-logo-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px 16px;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 24px 0;
   }
+  .coinvestor-logo-card { grid-column: span 2; }
   .coinvestor-logo-card:nth-child(11),
   .coinvestor-logo-card:nth-child(12),
   .coinvestor-logo-card:nth-child(13),
   .coinvestor-logo-card:nth-child(14) {
-    grid-column: auto;
+    grid-column: span 2;
   }
+  /* Center last row of 2 remaining after 3-col wrap */
   .coinvestors-panel {
     padding: 32px 20px;
   }
@@ -2359,8 +2393,15 @@ a.coinvestor-logo-card:hover .coinvestor-logo-img {
   }
 
   .coinvestors-logo-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px 12px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px 0;
+  }
+  .coinvestor-logo-card { grid-column: span 2; }
+  .coinvestor-logo-card:nth-child(11),
+  .coinvestor-logo-card:nth-child(12),
+  .coinvestor-logo-card:nth-child(13),
+  .coinvestor-logo-card:nth-child(14) {
+    grid-column: span 2;
   }
   .coinvestor-logo-img {
     height: 36px;
