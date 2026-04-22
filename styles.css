@@ -2226,6 +2226,16 @@ a.meet-team-card-link:hover .meet-team-logo {
   opacity: 0.85;
 }
 
+/* Cards with 4+ logos: shrink to fit single row */
+.meet-team-logos-dense .meet-team-logo {
+  height: 22px;
+  max-width: 70px;
+}
+
+.meet-team-logos-dense {
+  gap: 10px;
+}
+
 /* ── VENTURE PARTNERS: LARGER AVATARS ──────────────────────── */
 .vp-avatar-lg {
   width: 96px !important;
