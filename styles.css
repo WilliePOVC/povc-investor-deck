@@ -1002,6 +1002,15 @@ img { max-width: 100%; display: block; }
   box-shadow: 0 16px 40px rgba(0,0,0,0.12);
 }
 
+/* Clickable company cards */
+.pco-card[data-company-url] {
+  cursor: pointer;
+}
+.pco-card[data-company-url]:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(0,0,0,0.16);
+}
+
 .pco-header {
   background: var(--bg, #1a1a1a);
   padding: 24px;
