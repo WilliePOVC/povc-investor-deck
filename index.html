@@ -743,6 +743,18 @@
         </div>
       </div>
     </div>
+    <!-- Hover: swap mono ↔ color logos -->
+    <script>
+      document.querySelectorAll('.coinvestor-logo-card').forEach(card => {
+        const img = card.querySelector('.coinvestor-logo-img');
+        if (!img) return;
+        const monoSrc = img.src;
+        const colorSrc = monoSrc.replace('.png', '-color.png');
+        if (monoSrc.endsWith('.svg')) return; // SVGs don't need swap
+        card.addEventListener('mouseenter', () => { img.src = colorSrc; });
+        card.addEventListener('mouseleave', () => { img.src = monoSrc; });
+      });
+    </script>
   </section>
 
   <!-- SLIDE 11: GENERAL PARTNERS -->

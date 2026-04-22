@@ -1955,16 +1955,14 @@ a.coinvestor-logo-card {
   transition: transform 0.2s;
 }
 
-/* Monochrome treatment: #292929 via CSS filter
-   brightness(0) = pure black, then opacity ~0.84 softens to #292929 on #F2F2F2 */
+/* Monochrome: logos pre-recolored to #292929 in PNG.
+   No CSS filter needed — clean rendering with transparency intact. */
 .coinvestor-logo-img {
   height: 44px;
   width: auto;
   max-width: 160px;
   object-fit: contain;
-  filter: brightness(0) saturate(100%);
-  opacity: 0.84;
-  transition: filter 0.4s, opacity 0.4s;
+  transition: opacity 0.3s;
 }
 
 /* ── Optical sizing per logo type ── */
@@ -1998,13 +1996,12 @@ a.coinvestor-logo-card {
   height: 52px;
 }
 
-/* Hover: reveal original brand colors */
+/* Hover: reveal original brand colors (JS swaps to -color.png) */
 a.coinvestor-logo-card:hover {
   transform: scale(1.06);
 }
 
 a.coinvestor-logo-card:hover .coinvestor-logo-img {
-  filter: brightness(1) saturate(100%);
   opacity: 1;
 }
 
