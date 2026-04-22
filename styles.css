@@ -1956,6 +1956,16 @@ img { max-width: 100%; display: block; }
   max-height: 36px;
 }
 
+a.coinvestor-logo-card {
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+a.coinvestor-logo-card:hover {
+  transform: scale(1.05);
+}
+
 .coinvestor-logo-card:hover .coinvestor-logo-img {
   opacity: 1;
 }
