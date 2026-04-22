@@ -2088,7 +2088,7 @@ a.team-card-link:hover {
 .meet-team-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
+  gap: 24px;
   justify-items: center;
 }
 
@@ -2122,6 +2122,21 @@ a.team-card-link:hover {
   color: rgba(41,41,41,0.5);
   margin: 0 auto 20px;
   letter-spacing: 0.05em;
+}
+
+.meet-team-photo-wrap {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(41,41,41,0.1);
+  margin: 0 auto 20px;
+}
+
+.meet-team-headshot {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .meet-team-name {
@@ -2170,6 +2185,46 @@ a.team-card-link:hover {
 
 .meet-team-placeholder-card {
   opacity: 0.6;
+}
+
+/* Clickable team cards */
+a.meet-team-card-link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  display: block;
+}
+
+a.meet-team-card-link:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  transform: translateY(-3px);
+}
+
+/* Team member experience logos */
+.meet-team-logos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(41,41,41,0.06);
+}
+
+.meet-team-logo {
+  height: 28px;
+  width: auto;
+  max-width: 80px;
+  object-fit: contain;
+  opacity: 0.5;
+  filter: grayscale(100%);
+  transition: opacity 0.3s, filter 0.3s;
+}
+
+a.meet-team-card-link:hover .meet-team-logo {
+  opacity: 0.75;
+  filter: grayscale(0%);
 }
 
 /* ── VENTURE PARTNERS: LARGER AVATARS ──────────────────────── */
