@@ -1917,56 +1917,94 @@ img { max-width: 100%; display: block; }
 }
 
 /* ── CO-INVESTOR LOGO GRID ─────────────────────────── */
-.coinvestors-logo-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0;
+
+/* Background panel */
+.coinvestors-panel {
+  background: #F2F2F2;
+  border-radius: 20px;
+  padding: 48px 32px;
   max-width: 1000px;
   margin: 0 auto;
 }
 
-.coinvestor-logo-card {
+/* 5-column grid with equal gaps */
+.coinvestors-logo-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 32px 24px;
+  max-width: 920px;
+  margin: 0 auto;
+  align-items: center;
+  justify-items: center;
+}
+
+/* Last row (4 logos): center within the 5-col grid */
+.coinvestor-logo-card:nth-child(11) { grid-column: 1; }
+.coinvestor-logo-card:nth-child(12) { grid-column: 2; }
+.coinvestor-logo-card:nth-child(13) { grid-column: 4; }
+.coinvestor-logo-card:nth-child(14) { grid-column: 5; }
+
+a.coinvestor-logo-card {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 25%;
-  padding: 28px 20px;
-  box-sizing: border-box;
-}
-
-/* Last 6 logos: switch to 6-across to match original slide */
-.coinvestor-logo-card:nth-child(n+9) {
-  width: 16.666%;
-  padding: 24px 12px;
-}
-
-.coinvestor-logo-img {
-  max-width: 180px;
-  max-height: 44px;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  opacity: 0.8;
-  transition: opacity 0.3s;
-}
-
-.coinvestor-logo-card:nth-child(n+9) .coinvestor-logo-img {
-  max-width: 140px;
-  max-height: 36px;
-}
-
-a.coinvestor-logo-card {
   text-decoration: none;
   cursor: pointer;
+  padding: 8px;
+  box-sizing: border-box;
   transition: transform 0.2s;
 }
 
-a.coinvestor-logo-card:hover {
-  transform: scale(1.05);
+/* Monochrome treatment: #292929 via CSS filter
+   brightness(0) = pure black, then opacity ~0.84 softens to #292929 on #F2F2F2 */
+.coinvestor-logo-img {
+  height: 44px;
+  width: auto;
+  max-width: 160px;
+  object-fit: contain;
+  filter: brightness(0) saturate(100%);
+  opacity: 0.84;
+  transition: filter 0.4s, opacity 0.4s;
 }
 
-.coinvestor-logo-card:hover .coinvestor-logo-img {
+/* ── Optical sizing per logo type ── */
+/* Wordmark-only logos: slightly taller for visual balance */
+[data-logo="lerer-hippeau"] .coinvestor-logo-img,
+[data-logo="initialized"] .coinvestor-logo-img,
+[data-logo="offline"] .coinvestor-logo-img {
+  height: 52px;
+}
+
+/* Logomark+wordmark combos at standard size */
+[data-logo="upfront"] .coinvestor-logo-img,
+[data-logo="bold-capital"] .coinvestor-logo-img,
+[data-logo="courtside-vc"] .coinvestor-logo-img {
+  height: 48px;
+}
+
+/* Wide/horizontal logos: constrain width more */
+[data-logo="palm-tree-crew"] .coinvestor-logo-img {
+  height: 40px;
+  max-width: 150px;
+}
+
+[data-logo="bam-ventures"] .coinvestor-logo-img {
+  height: 40px;
+  max-width: 150px;
+}
+
+/* Point72: match top-row scale */
+[data-logo="point72"] .coinvestor-logo-img {
+  height: 52px;
+}
+
+/* Hover: reveal original brand colors */
+a.coinvestor-logo-card:hover {
+  transform: scale(1.06);
+}
+
+a.coinvestor-logo-card:hover .coinvestor-logo-img {
+  filter: brightness(1) saturate(100%);
   opacity: 1;
 }
 
@@ -2111,12 +2149,18 @@ a.coinvestor-logo-card:hover {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .coinvestor-logo-card {
-    width: 33.333%;
+  .coinvestors-logo-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px 16px;
   }
-  .coinvestor-logo-card:nth-child(n+9) {
-    width: 25%;
-    padding: 20px 12px;
+  .coinvestor-logo-card:nth-child(11),
+  .coinvestor-logo-card:nth-child(12),
+  .coinvestor-logo-card:nth-child(13),
+  .coinvestor-logo-card:nth-child(14) {
+    grid-column: auto;
+  }
+  .coinvestors-panel {
+    padding: 32px 20px;
   }
 
   .meet-team-grid {
@@ -2317,15 +2361,16 @@ a.coinvestor-logo-card:hover {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .coinvestor-logo-card {
-    width: 50%;
-  }
-  .coinvestor-logo-card:nth-child(n+9) {
-    width: 33.333%;
+  .coinvestors-logo-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 12px;
   }
   .coinvestor-logo-img {
-    max-width: 140px;
-    max-height: 36px;
+    height: 36px;
+    max-width: 120px;
+  }
+  .coinvestors-panel {
+    padding: 24px 16px;
   }
 
   .meet-team-grid {
