@@ -2204,27 +2204,26 @@ a.meet-team-card-link:hover {
 .meet-team-logos {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 14px;
   justify-content: center;
   align-items: center;
-  margin-top: 12px;
-  padding-top: 12px;
+  margin-top: 16px;
+  padding-top: 14px;
   border-top: 1px solid rgba(41,41,41,0.06);
+  min-height: 36px;
 }
 
 .meet-team-logo {
   height: 28px;
   width: auto;
-  max-width: 80px;
+  max-width: 90px;
   object-fit: contain;
-  opacity: 0.5;
-  filter: grayscale(100%);
-  transition: opacity 0.3s, filter 0.3s;
+  opacity: 0.55;
+  transition: opacity 0.3s;
 }
 
 a.meet-team-card-link:hover .meet-team-logo {
-  opacity: 0.75;
-  filter: grayscale(0%);
+  opacity: 0.85;
 }
 
 /* ── VENTURE PARTNERS: LARGER AVATARS ──────────────────────── */
