@@ -2485,6 +2485,31 @@ a.meet-team-card-link:hover .meet-team-logo {
   line-height: 1.5;
 }
 
+/* VP Network Company Logos */
+.vp-company-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.vp-company-logo {
+  height: 36px;
+  width: auto;
+  max-width: 140px;
+  object-fit: contain;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+
+.vp-company-logo:hover {
+  opacity: 0.8;
+}
+
 /* ── VP GRID: 6-COLUMN (RESPONSIVE) ───────────────────────── */
 .vp-grid-6 {
   display: grid;
