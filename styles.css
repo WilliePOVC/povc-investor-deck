@@ -2267,6 +2267,20 @@ a.meet-team-card-link:hover .meet-team-logo {
   margin-bottom: 20px;
 }
 
+.vp-avatar-photo {
+  padding: 0 !important;
+  overflow: hidden;
+  background: #e5e5e5 !important;
+  border: 2px solid rgba(41,41,41,0.1) !important;
+}
+
+.vp-headshot-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
 /* ── RESPONSIVE: NEW SECTIONS ──────────────────────────────── */
 @media (max-width: 960px) {
   .pco-grid-5 .pco-card {
