@@ -2502,12 +2502,12 @@ a.meet-team-card-link:hover .meet-team-logo {
   width: auto;
   max-width: 140px;
   object-fit: contain;
-  opacity: 0.5;
+  opacity: 0.35;
   transition: opacity 0.3s;
 }
 
 .vp-company-logo:hover {
-  opacity: 0.8;
+  opacity: 0.6;
 }
 
 /* ── VP GRID: 6-COLUMN (RESPONSIVE) ───────────────────────── */
