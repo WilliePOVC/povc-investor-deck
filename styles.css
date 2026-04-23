@@ -1804,9 +1804,13 @@ a.vp-card-link:hover h4 {
 }
 
 /* Light variants for dark backgrounds */
+/* Fund Performance on dark background — max contrast */
+.section-dark .scorecard-num,
 .scorecard-num.light { color: #fff !important; }
-.scorecard-label.light { color: rgba(255,255,255,0.7) !important; }
-.scorecard-divider-light { background: rgba(255,255,255,0.2); }
+.section-dark .scorecard-label,
+.scorecard-label.light { color: rgba(255,255,255,0.75) !important; }
+.section-dark .scorecard-divider,
+.scorecard-divider-light { background: rgba(255,255,255,0.25) !important; }
 .section-sub-note.light { color: rgba(255,255,255,0.5) !important; }
 
 /* ── 5-CARD PORTFOLIO GRID ─────────────────────────────────── */
@@ -2117,17 +2121,16 @@ a.team-card-link:hover {
 }
 
 .gp-brand-logo {
-  height: 24px;
+  height: 28px;
   width: auto;
-  max-width: 100px;
+  max-width: 120px;
   object-fit: contain;
-  opacity: 0.6;
-  filter: brightness(10);
+  opacity: 0.7;
   transition: opacity 0.3s;
 }
 
 .team-card-link:hover .gp-brand-logo {
-  opacity: 0.85;
+  opacity: 1;
 }
 
 /* Remove old paragraph style from team cards */
