@@ -1803,6 +1803,12 @@ a.vp-card-link:hover h4 {
   flex-shrink: 0;
 }
 
+/* Light variants for dark backgrounds */
+.scorecard-num.light { color: #fff; }
+.scorecard-label.light { color: rgba(255,255,255,0.5); }
+.scorecard-divider-light { background: rgba(255,255,255,0.15); }
+.section-sub-note.light { color: rgba(255,255,255,0.4) !important; }
+
 /* ── 5-CARD PORTFOLIO GRID ─────────────────────────────────── */
 .pco-grid-5 {
   display: flex;
