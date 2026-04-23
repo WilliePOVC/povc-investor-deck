@@ -1034,16 +1034,16 @@ img { max-width: 100%; display: block; }
 }
 
 .pco-logo-img-wrap {
-  width: 52px;
-  height: 52px;
-  border-radius: 10px;
+  width: 68px;
+  height: 68px;
+  border-radius: 12px;
   background: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   overflow: hidden;
-  padding: 4px;
+  padding: 6px;
   box-sizing: border-box;
 }
 
