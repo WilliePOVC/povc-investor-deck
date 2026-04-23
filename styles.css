@@ -1324,6 +1324,29 @@ img { max-width: 100%; display: block; }
   transform: translateY(-2px);
 }
 
+/* VP card as clickable anchor */
+a.vp-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+a.vp-card-link:hover {
+  box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+  transform: translateY(-3px);
+}
+
+a.vp-card-link h4 {
+  color: var(--dark);
+}
+
+a.vp-card-link:hover h4 {
+  color: var(--dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .vp-avatar {
   width: 52px;
   height: 52px;
