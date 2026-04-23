@@ -1804,10 +1804,10 @@ a.vp-card-link:hover h4 {
 }
 
 /* Light variants for dark backgrounds */
-.scorecard-num.light { color: #fff; }
-.scorecard-label.light { color: rgba(255,255,255,0.5); }
-.scorecard-divider-light { background: rgba(255,255,255,0.15); }
-.section-sub-note.light { color: rgba(255,255,255,0.4) !important; }
+.scorecard-num.light { color: #fff !important; }
+.scorecard-label.light { color: rgba(255,255,255,0.7) !important; }
+.scorecard-divider-light { background: rgba(255,255,255,0.2); }
+.section-sub-note.light { color: rgba(255,255,255,0.5) !important; }
 
 /* ── 5-CARD PORTFOLIO GRID ─────────────────────────────────── */
 .pco-grid-5 {
@@ -2106,6 +2106,28 @@ a.team-card-link:hover {
   color: rgba(255,255,255,0.5);
   letter-spacing: 0.06em;
   text-transform: uppercase;
+}
+
+/* GP credential logo row */
+.gp-logo-row {
+  gap: 16px;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.gp-brand-logo {
+  height: 24px;
+  width: auto;
+  max-width: 100px;
+  object-fit: contain;
+  opacity: 0.6;
+  filter: brightness(10);
+  transition: opacity 0.3s;
+}
+
+.team-card-link:hover .gp-brand-logo {
+  opacity: 0.85;
 }
 
 /* Remove old paragraph style from team cards */
