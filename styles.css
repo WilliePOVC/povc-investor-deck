@@ -1945,8 +1945,8 @@ a.vp-card-link:hover h4 {
 .coinvestors-panel {
   background: #F2F2F2;
   border-radius: 20px;
-  padding: 48px 32px;
-  max-width: 1000px;
+  padding: 52px 40px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
@@ -1954,8 +1954,8 @@ a.vp-card-link:hover h4 {
 .coinvestors-logo-grid {
   display: grid;
   grid-template-columns: repeat(10, 1fr);  /* 10-col for centering math */
-  gap: 36px 0;
-  max-width: 940px;
+  gap: 36px 8px;
+  max-width: 1020px;
   margin: 0 auto;
   align-items: center;
   justify-items: center;
@@ -1987,9 +1987,9 @@ a.coinvestor-logo-card {
 /* Monochrome: logos pre-recolored to #292929 in PNG.
    No CSS filter needed — clean rendering with transparency intact. */
 .coinvestor-logo-img {
-  height: 48px;
+  height: 52px;
   width: auto;
-  max-width: 170px;
+  max-width: 180px;
   object-fit: contain;
   transition: opacity 0.3s;
 }
