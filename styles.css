@@ -2862,3 +2862,106 @@ a.meet-team-card-link:hover .meet-team-logo {
 .fp-donut-hero { font-family: var(--font-heading); font-weight: 700; font-size: 2rem; color: #fff; letter-spacing: -0.03em; }
 
 .fp-dot-called { background: rgba(255,255,255,0.45); }
+
+/* ── ENHANCED ANIMATIONS ──────────────────────────── */
+
+/* Subtle scale-in for cards */
+.aos-scale {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+}
+.aos-scale.visible { opacity: 1; transform: scale(1); }
+
+/* Fade-in from left */
+.aos-left {
+  opacity: 0;
+  transform: translateX(-24px);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+}
+.aos-left.visible { opacity: 1; transform: translateX(0); }
+
+/* Fade-in from right */
+.aos-right {
+  opacity: 0;
+  transform: translateX(24px);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+}
+.aos-right.visible { opacity: 1; transform: translateX(0); }
+
+/* Smooth hover lift for interactive cards */
+.pco-card { transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out); }
+.pco-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.12); }
+
+/* Gentle pulse for donut on scroll */
+@keyframes donutPulse {
+  0% { transform: scale(0.92); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.fp-donut-wrap.visible svg { animation: donutPulse 0.8s var(--ease-out) forwards; }
+.fp-donut-wrap svg { opacity: 0; }
+
+/* Stagger children in grids */
+.stagger-children > *:nth-child(1) { transition-delay: 0s; }
+.stagger-children > *:nth-child(2) { transition-delay: 0.08s; }
+.stagger-children > *:nth-child(3) { transition-delay: 0.16s; }
+.stagger-children > *:nth-child(4) { transition-delay: 0.24s; }
+.stagger-children > *:nth-child(5) { transition-delay: 0.32s; }
+.stagger-children > *:nth-child(6) { transition-delay: 0.4s; }
+.stagger-children > *:nth-child(7) { transition-delay: 0.48s; }
+.stagger-children > *:nth-child(8) { transition-delay: 0.56s; }
+
+/* Smooth section transitions */
+.section { transition: opacity 0.3s ease; }
+
+/* Title rule grow animation */
+@keyframes ruleGrow {
+  from { width: 0; }
+  to { width: 44px; }
+}
+.title-rule.visible { animation: ruleGrow 0.6s var(--ease-out) 0.3s forwards; width: 0; }
+
+/* Number counter glow effect */
+@keyframes counterGlow {
+  0% { text-shadow: 0 0 0 transparent; }
+  50% { text-shadow: 0 0 20px rgba(224,216,209,0.2); }
+  100% { text-shadow: 0 0 0 transparent; }
+}
+.scorecard-num.counted { animation: counterGlow 1s ease 0.5s; }
+
+/* Smooth logo fade for co-investor grid */
+.coinvestor-logo-card { transition: opacity 0.5s var(--ease-out), transform 0.3s var(--ease-out); }
+
+/* VP card hover enhancement */
+.vp-card { transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out), background 0.3s; }
+.vp-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.15); }
+
+/* Meet team card hover */
+.meet-team-card { transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out); }
+
+/* Cover slide subtle float */
+@keyframes subtleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.cover-stat-num { animation: subtleFloat 4s ease-in-out infinite; }
+.cover-stat-num:nth-child(2) { animation-delay: 0.5s; }
+.cover-stat-num:nth-child(3) { animation-delay: 1s; }
+
+/* Smooth scroll indicator pulse */
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.4; transform: translateY(0); }
+  50% { opacity: 0.8; transform: translateY(4px); }
+}
+
+/* Fund raise bar fill animation */
+@keyframes barFill {
+  from { width: 0; }
+}
+.fp-raise-fill { animation: barFill 1s var(--ease-out) 0.5s backwards; }
+
+/* IRR bar fill animation */
+.fp-irr-fill { animation: barFill 1s var(--ease-out) 0.7s backwards; }
+
+/* Meter bar fill animations */
+.fp-meter-fill { animation: barFill 0.8s var(--ease-out) 0.5s backwards; }

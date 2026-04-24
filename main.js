@@ -331,3 +331,36 @@ document.addEventListener('DOMContentLoaded', () => {
   initParallax();
   initDotColors();
 });
+
+// ── Enhanced animations: observe additional elements ──
+(function() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15 });
+
+  // Observe new animation classes
+  document.querySelectorAll('.aos-scale, .aos-left, .aos-right, .fp-donut-wrap, .title-rule').forEach(el => {
+    observer.observe(el);
+  });
+
+  // Add stagger-children to grids
+  document.querySelectorAll('.pco-grid-5, .coinvestors-logo-grid, .meet-team-grid, .vp-grid-6, .fp-legend').forEach(el => {
+    el.classList.add('stagger-children');
+  });
+
+  // Add counted class after counter animation
+  document.querySelectorAll('.count-up').forEach(el => {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setTimeout(() => el.classList.add('counted'), 1500);
+        }
+      });
+    }, { threshold: 0.5 });
+    obs.observe(el);
+  });
+})();
