@@ -2847,3 +2847,16 @@ a.meet-team-card-link:hover .meet-team-logo {
 @media(max-width:700px) { .fp-disc-grid { grid-template-columns: 1fr; } }
 .fp-disc-label { font-family: var(--font-body); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(255,255,255,0.35); display: block; margin-bottom: 6px; font-weight: 500; }
 .fp-disc-grid p { font-family: var(--font-body); font-size: 0.78rem; color: rgba(255,255,255,0.55); margin: 0; line-height: 1.6; }
+
+/* Fund Raise progress strip */
+.fp-raise-strip { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 14px 18px; margin-bottom: 20px; }
+.fp-raise-labels { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.fp-raise-lbl { font-family: var(--font-body); font-weight: 500; font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+.fp-raise-val { font-size: 0.82rem; color: rgba(255,255,255,0.7); }
+.fp-raise-val strong { color: #fff; font-weight: 700; font-family: var(--font-heading); }
+.fp-raise-of { color: rgba(255,255,255,0.4); }
+.fp-raise-track { width: 100%; height: 6px; background: rgba(255,255,255,0.08); border-radius: 3px; overflow: hidden; }
+.fp-raise-fill { height: 100%; background: #E0D8D1; border-radius: 3px; }
+
+/* Donut hero dollar amount */
+.fp-donut-hero { font-family: var(--font-heading); font-weight: 700; font-size: 2.8rem; color: #fff; letter-spacing: -0.03em; }

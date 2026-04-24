@@ -595,15 +595,15 @@
           <h2 class="section-title light" style="font-size:clamp(1.5rem,3vw,2.2rem);margin:0">Press On Ventures Fund I</h2>
         </div>
         <div class="fp-chips">
-          <div class="fp-chip"><span>Vintage</span><strong>2024</strong></div>
-          <div class="fp-chip"><span>Fund Size</span><strong>$20M</strong></div>
+          <div class="fp-chip"><span>Target</span><strong>$20M</strong></div>
+          <div class="fp-chip"><span>Raised</span><strong>$15M</strong></div>
           <div class="fp-chip"><span>As of</span><strong>Q1 2026</strong></div>
         </div>
       </div>
 
       <div class="fp-grid">
         <!-- LEFT: Returns Panel -->
-        <div class="fp-returns-col aos" data-delay="100">
+        <div class="fp-panel fp-returns-col aos" data-delay="100">
           <div class="fp-panel-head">
             <div class="fp-eyebrow">Returns</div>
             <div class="fp-panel-sub">Core performance trio · IRR</div>
@@ -658,28 +658,36 @@
         <div class="fp-panel aos" data-delay="200">
           <div class="fp-panel-head">
             <div class="fp-eyebrow">Capital Deployment</div>
-            <div class="fp-panel-sub">$9M of $20M called</div>
+            <div class="fp-panel-sub">$9M invested · $5M reserved</div>
+          </div>
+          <!-- Fund Raise progress bar -->
+          <div class="fp-raise-strip">
+            <div class="fp-raise-labels">
+              <span class="fp-raise-lbl">Fund raise</span>
+              <span class="fp-raise-val"><strong>$15M</strong> <span class="fp-raise-of">of $20M target</span></span>
+            </div>
+            <div class="fp-raise-track"><div class="fp-raise-fill" style="width:75%"></div></div>
           </div>
           <div class="fp-donut-wrap">
-            <svg class="fp-donut" viewBox="0 0 280 280">
-              <circle cx="140" cy="140" r="110" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="32"/>
-              <!-- Invested (30% = 207.35 of 691.15 circumference) -->
-              <circle cx="140" cy="140" r="110" fill="none" stroke="#E0D8D1" stroke-width="32" stroke-dasharray="207.35 483.8" stroke-dashoffset="0" transform="rotate(-90 140 140)"/>
-              <!-- Reserves (25% = 172.79) -->
-              <circle cx="140" cy="140" r="110" fill="none" stroke="rgba(224,216,209,0.45)" stroke-width="32" stroke-dasharray="172.79 518.36" stroke-dashoffset="-207.35" transform="rotate(-90 140 140)"/>
-              <!-- Uncalled (45% = 311.01) -->
-              <circle cx="140" cy="140" r="110" fill="none" stroke="rgba(255,255,255,0.10)" stroke-width="32" stroke-dasharray="311.01 380.14" stroke-dashoffset="-380.14" transform="rotate(-90 140 140)"/>
+            <svg class="fp-donut" viewBox="0 0 240 240">
+              <circle cx="120" cy="120" r="95" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="32"/>
+              <!-- Dry Powder (7% = 39.79) -->
+              <circle cx="120" cy="120" r="95" fill="none" stroke="rgba(255,255,255,0.10)" stroke-width="32" stroke-dasharray="39.79 557.11" stroke-dashoffset="0" transform="rotate(-90 120 120)"/>
+              <!-- Reserves (33% = 198.97) -->
+              <circle cx="120" cy="120" r="95" fill="none" stroke="rgba(224,216,209,0.45)" stroke-width="32" stroke-dasharray="198.97 397.94" stroke-dashoffset="-39.79" transform="rotate(-90 120 120)"/>
+              <!-- Invested (60% = 358.14) -->
+              <circle cx="120" cy="120" r="95" fill="none" stroke="#E0D8D1" stroke-width="32" stroke-dasharray="358.14 238.76" stroke-dashoffset="-238.76" transform="rotate(-90 120 120)"/>
             </svg>
             <div class="fp-donut-center">
-              <div class="fp-donut-pct">45%</div>
-              <div class="fp-donut-lbl">Called</div>
-              <div class="fp-donut-fund">$9M / $20M</div>
+              <div class="fp-donut-hero">$9M</div>
+              <div class="fp-donut-lbl">Deployed</div>
+              <div class="fp-donut-fund">of $15M raised</div>
             </div>
           </div>
           <div class="fp-legend">
-            <div class="fp-legend-row"><span class="fp-dot fp-dot-invested"></span><span class="fp-legend-name">Invested</span><span class="fp-legend-val">$6M</span><span class="fp-legend-pct">30%</span></div>
-            <div class="fp-legend-row"><span class="fp-dot fp-dot-reserves"></span><span class="fp-legend-name">Reserves · Follow-ons</span><span class="fp-legend-val">$5M</span><span class="fp-legend-pct">25%</span></div>
-            <div class="fp-legend-row"><span class="fp-dot fp-dot-uncalled"></span><span class="fp-legend-name">Dry Powder · Uncalled</span><span class="fp-legend-val">$11M</span><span class="fp-legend-pct">55%</span></div>
+            <div class="fp-legend-row"><span class="fp-dot fp-dot-invested"></span><span class="fp-legend-name">Invested</span><span class="fp-legend-val">$9M</span><span class="fp-legend-pct">60%</span></div>
+            <div class="fp-legend-row"><span class="fp-dot fp-dot-reserves"></span><span class="fp-legend-name">Reserves · Follow-ons</span><span class="fp-legend-val">$5M</span><span class="fp-legend-pct">33%</span></div>
+            <div class="fp-legend-row"><span class="fp-dot fp-dot-uncalled"></span><span class="fp-legend-name">Dry Powder</span><span class="fp-legend-val">$1M</span><span class="fp-legend-pct">7%</span></div>
           </div>
         </div>
       </div>
