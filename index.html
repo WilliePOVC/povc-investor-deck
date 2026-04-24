@@ -662,12 +662,12 @@
           <div class="fp-donut-wrap">
             <svg class="fp-donut" viewBox="0 0 280 280">
               <circle cx="140" cy="140" r="110" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="32"/>
-              <!-- Uncalled -->
-              <circle cx="140" cy="140" r="110" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="32" stroke-dasharray="380.13 311.02" stroke-dashoffset="0" transform="rotate(-90 140 140)"/>
-              <!-- Reserves -->
-              <circle cx="140" cy="140" r="110" fill="none" stroke="rgba(224,216,209,0.45)" stroke-width="32" stroke-dasharray="172.79 518.36" stroke-dashoffset="-380.13" transform="rotate(-90 140 140)"/>
-              <!-- Invested -->
-              <circle cx="140" cy="140" r="110" fill="none" stroke="#E0D8D1" stroke-width="32" stroke-dasharray="207.35 483.8" stroke-dashoffset="-552.92" transform="rotate(-90 140 140)"/>
+              <!-- Invested (30% = 207.35 of 691.15 circumference) -->
+              <circle cx="140" cy="140" r="110" fill="none" stroke="#E0D8D1" stroke-width="32" stroke-dasharray="207.35 483.8" stroke-dashoffset="0" transform="rotate(-90 140 140)"/>
+              <!-- Reserves (25% = 172.79) -->
+              <circle cx="140" cy="140" r="110" fill="none" stroke="rgba(224,216,209,0.45)" stroke-width="32" stroke-dasharray="172.79 518.36" stroke-dashoffset="-207.35" transform="rotate(-90 140 140)"/>
+              <!-- Uncalled (45% = 311.01) -->
+              <circle cx="140" cy="140" r="110" fill="none" stroke="rgba(255,255,255,0.10)" stroke-width="32" stroke-dasharray="311.01 380.14" stroke-dashoffset="-380.14" transform="rotate(-90 140 140)"/>
             </svg>
             <div class="fp-donut-center">
               <div class="fp-donut-pct">45%</div>
