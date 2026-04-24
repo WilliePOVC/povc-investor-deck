@@ -364,3 +364,19 @@ document.addEventListener('DOMContentLoaded', () => {
     obs.observe(el);
   });
 })();
+
+// ── Capital deployment animations ──
+(function() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  // Observe fund performance elements
+  document.querySelectorAll('.fp-raise-strip, .fp-legend').forEach(el => {
+    observer.observe(el);
+  });
+})();
