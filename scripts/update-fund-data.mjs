@@ -20,15 +20,14 @@ readFileSync(envPath, 'utf8').split('\n').forEach(line => {
 
 const NOTION_API_KEY = env.NOTION_API_KEY;
 const LP_DB_ID = '196e9175-4432-80c5-babc-f095f1b259ba';
+const FUND_TARGET = 20; // $20M target
 
-async function queryAllPages(dbId, filter = {}) {
+async function queryAllPages(dbId) {
   const results = [];
   let cursor = null;
-  
   while (true) {
-    const body = { page_size: 100, ...filter };
+    const body = { page_size: 100 };
     if (cursor) body.start_cursor = cursor;
-    
     const resp = await fetch(`https://api.notion.com/v1/databases/${dbId}/query`, {
       method: 'POST',
       headers: {
@@ -38,14 +37,11 @@ async function queryAllPages(dbId, filter = {}) {
       },
       body: JSON.stringify(body)
     });
-    
     const data = await resp.json();
     results.push(...(data.results || []));
-    
     if (!data.has_more) break;
     cursor = data.next_cursor;
   }
-  
   return results;
 }
 
@@ -54,71 +50,60 @@ function sumField(results, fieldName) {
   for (const r of results) {
     const prop = r.properties?.[fieldName];
     if (!prop) continue;
-    
-    let num = 0;
-    if (prop.type === 'formula') {
-      num = prop.formula?.number || 0;
-    } else if (prop.type === 'number') {
-      num = prop.number || 0;
-    }
+    const num = prop.type === 'formula' ? (prop.formula?.number || 0) : (prop.number || 0);
     if (num > 0) total += num;
   }
   return total;
-}
-
-function formatM(amount) {
-  // Format as $X.XXM
-  const m = amount / 1000000;
-  if (m === Math.floor(m)) return `$${m}M`;
-  return `$${m.toFixed(2)}M`;
 }
 
 async function main() {
   console.log('Fetching LP data from Notion...');
   const lpRecords = await queryAllPages(LP_DB_ID);
   console.log(`  Found ${lpRecords.length} LP records`);
+
+  const raised = sumField(lpRecords, 'Fund One Capital Closed');
+  const raisedM = raised / 1000000;
+  const raisedStr = raisedM === Math.floor(raisedM) ? `${raisedM}` : `${raisedM.toFixed(2)}`;
+  const raisedPct = Math.round((raisedM / FUND_TARGET) * 100);
   
-  // Sum Fund One Capital Closed
-  const fundOneRaised = sumField(lpRecords, 'Fund One Capital Closed');
-  const fundOneRaisedM = formatM(fundOneRaised);
-  console.log(`  Fund One Capital Closed: ${fundOneRaisedM}`);
-  
-  // Update the deck HTML
+  console.log(`  Fund One Capital Closed: $${raisedStr}M`);
+  console.log(`  Raise progress: ${raisedPct}%`);
+
+  // Read HTML
   const htmlPath = join(DECK_DIR, 'index.html');
   let html = readFileSync(htmlPath, 'utf8');
-  
-  // Update the "Raised" chip
-  const raisedChipRegex = /(<div class="fp-chip"><span>Raised<\/span><strong>)\$[\d.]+M(<\/strong><\/div>)/;
-  if (raisedChipRegex.test(html)) {
-    html = html.replace(raisedChipRegex, `$1${fundOneRaisedM}$2`);
-    console.log(`  ✅ Updated Raised chip to ${fundOneRaisedM}`);
-  }
-  
-  // Update the fund raise bar label
-  const raiseValRegex = /(<strong>)\$[\d.]+M(<\/strong> <span class="fp-raise-of">)/;
-  if (raiseValRegex.test(html)) {
-    html = html.replace(raiseValRegex, `$1${fundOneRaisedM}$2`);
-    console.log(`  ✅ Updated fund raise bar to ${fundOneRaisedM}`);
-  }
-  
-  // Update the donut "of $XM raised" text
-  const donutFundRegex = /(of )\$[\d.]+M( raised)/;
-  if (donutFundRegex.test(html)) {
-    html = html.replace(donutFundRegex, `$1${fundOneRaisedM}$2`);
-    console.log(`  ✅ Updated donut label to ${fundOneRaisedM}`);
-  }
-  
-  // Update the fund raise progress bar width (raised/target * 100)
-  const target = 20; // $20M target - static for now
-  const raisedPct = Math.round((fundOneRaised / 1000000 / target) * 100);
-  const raiseWidthRegex = /(class="fp-raise-fill" style="width:)\d+%/;
-  if (raiseWidthRegex.test(html)) {
-    html = html.replace(raiseWidthRegex, `$1${raisedPct}%`);
-    console.log(`  ✅ Updated fund raise bar width to ${raisedPct}%`);
-  }
-  
+
+  // Replace using simple string operations (avoid regex $ issues)
+  // 1. Raised chip
+  html = html.replace(
+    /<div class="fp-chip"><span>Raised<\/span><strong>[^<]+<\/strong><\/div>/,
+    `<div class="fp-chip"><span>Raised</span><strong>$${raisedStr}M</strong></div>`
+  );
+  console.log('  ✅ Raised chip');
+
+  // 2. Fund raise bar value
+  html = html.replace(
+    /<span class="fp-raise-val"><strong>[^<]+<\/strong>/,
+    `<span class="fp-raise-val"><strong>$${raisedStr}M</strong>`
+  );
+  console.log('  ✅ Fund raise bar');
+
+  // 3. Donut "of $X raised"
+  html = html.replace(
+    /of \$[\d.]+M raised/,
+    `of $${raisedStr}M raised`
+  );
+  console.log('  ✅ Donut label');
+
+  // 4. Fund raise bar width
+  html = html.replace(
+    /class="fp-raise-fill" style="width:\d+%"/,
+    `class="fp-raise-fill" style="width:${raisedPct}%"`
+  );
+  console.log('  ✅ Raise bar width');
+
   writeFileSync(htmlPath, html);
-  console.log('\n✅ Deck updated with live Notion data!');
+  console.log(`\n✅ Deck updated: Raised = $${raisedStr}M (${raisedPct}% of $${FUND_TARGET}M)`);
 }
 
 main().catch(console.error);
