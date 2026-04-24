@@ -380,3 +380,25 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(el);
   });
 })();
+
+// ── Fund raise bar animation fix ──
+(function() {
+  const strip = document.getElementById('fp-raise-strip');
+  if (!strip) return;
+  const fill = strip.querySelector('.fp-raise-fill');
+  if (!fill) return;
+  // Store target width and set to 0
+  const targetWidth = fill.style.width;
+  fill.style.width = '0%';
+  fill.style.transition = 'width 1.2s cubic-bezier(0.34, 1.56, 0.64, 1)';
+  
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        setTimeout(() => { fill.style.width = targetWidth; }, 400);
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  obs.observe(strip);
+})();
