@@ -583,34 +583,112 @@
     </div>
   </section>
 
-  <!-- FUND PERFORMANCE -->
-  <section id="fund-performance" class="section section-dark">
+  <!-- FUND PERFORMANCE v2 -->
+  <section id="fund-performance" class="section fp-slide">
     <div class="slide-number slide-number-light">09</div>
     <div class="section-inner">
-      <div class="section-header aos" data-delay="0" style="text-align: center;">
-        <div class="eyebrow light">Performance</div>
-        <h2 class="section-title light">Fund Performance</h2>
-        <div class="title-rule light" style="margin: 0 auto 56px;"></div>
-      </div>
-      <div class="stats-scorecard aos" data-delay="100">
-        <div class="scorecard-stat">
-          <div class="scorecard-num count-up" data-target="3" data-suffix=".5M" data-prefix="$" style="color:#fff">$0</div>
-          <div class="scorecard-label" style="color:rgba(255,255,255,0.65)">Total Deployed</div>
+      <!-- Top bar -->
+      <div class="fp-topbar aos" data-delay="0">
+        <div>
+          <div class="eyebrow light" style="margin-bottom:8px">Fund Performance</div>
+          <h2 class="section-title light" style="font-size:clamp(1.5rem,3vw,2.2rem);margin:0">Press On Ventures Fund I</h2>
         </div>
-        <div class="scorecard-stat">
-          <div class="scorecard-num count-up" data-target="12" data-suffix="" data-prefix="" style="color:#fff">0</div>
-          <div class="scorecard-label" style="color:rgba(255,255,255,0.65)">Portfolio Companies + SPVs</div>
-        </div>
-        <div class="scorecard-stat">
-          <div class="scorecard-num count-up" data-target="1" data-suffix=".4x" data-prefix="" style="color:#fff">0</div>
-          <div class="scorecard-label" style="color:rgba(255,255,255,0.65)">Gross MOIC (Placeholder)</div>
-        </div>
-        <div class="scorecard-stat">
-          <div class="scorecard-num count-up" data-target="0" data-suffix="" data-prefix="" style="color:#fff">0</div>
-          <div class="scorecard-label" style="color:rgba(255,255,255,0.65)">Realized Exits</div>
+        <div class="fp-chips">
+          <div class="fp-chip"><span>Vintage</span><strong>2024</strong></div>
+          <div class="fp-chip"><span>Fund Size</span><strong>$20M</strong></div>
+          <div class="fp-chip"><span>As of</span><strong>Q1 2026</strong></div>
         </div>
       </div>
-      <p class="section-sub-note aos" data-delay="200" style="text-align: center; margin-top: 40px; color: rgba(255,255,255,0.4);">Metrics are preliminary and subject to update. MOIC and IRR to be finalized.</p>
+
+      <div class="fp-grid">
+        <!-- LEFT: Returns Panel -->
+        <div class="fp-panel aos" data-delay="100">
+          <div class="fp-panel-head">
+            <div class="fp-eyebrow">Returns</div>
+            <div class="fp-panel-sub">Core performance trio · IRR</div>
+          </div>
+          <!-- TVPI Hero -->
+          <div class="fp-tvpi-row">
+            <div>
+              <div class="fp-metric-name">TVPI</div>
+              <div class="fp-metric-desc">Total Value to Paid-In</div>
+            </div>
+            <div class="fp-tvpi-right">
+              <span class="fp-tvpi-num">1.42x</span>
+              <div class="fp-bench-pill">▲ 0.24x vs Q1 bench</div>
+            </div>
+          </div>
+          <!-- DPI / RVPI -->
+          <div class="fp-split-row">
+            <div class="fp-split">
+              <div class="fp-metric-name">DPI</div>
+              <div class="fp-metric-desc">Distributions to Paid-In</div>
+              <div class="fp-split-val">0.12x</div>
+              <div class="fp-split-bench">Bench 0.05x</div>
+              <div class="fp-meter"><div class="fp-meter-fill" style="width:8%"></div></div>
+            </div>
+            <div class="fp-split">
+              <div class="fp-metric-name">RVPI</div>
+              <div class="fp-metric-desc">Residual Value</div>
+              <div class="fp-split-val">1.30x</div>
+              <div class="fp-split-bench">Bench 1.13x</div>
+              <div class="fp-meter"><div class="fp-meter-fill" style="width:92%;opacity:0.55"></div></div>
+            </div>
+          </div>
+          <!-- IRR -->
+          <div class="fp-irr-block">
+            <div class="fp-irr-row">
+              <div>
+                <div class="fp-metric-name">Net IRR</div>
+                <div class="fp-metric-desc">Net of fees &amp; carry</div>
+              </div>
+              <div class="fp-irr-num">22.4%</div>
+            </div>
+            <div class="fp-irr-bar">
+              <div class="fp-irr-fill" style="width:56%"></div>
+              <div class="fp-irr-mark" style="left:35.5%"><span>Q1 bench 14.2%</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: Capital Deployment -->
+        <div class="fp-panel aos" data-delay="200">
+          <div class="fp-panel-head">
+            <div class="fp-eyebrow">Capital Deployment</div>
+            <div class="fp-panel-sub">$9M of $20M called</div>
+          </div>
+          <div class="fp-donut-wrap">
+            <svg class="fp-donut" viewBox="0 0 280 280">
+              <circle cx="140" cy="140" r="110" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="32"/>
+              <!-- Uncalled -->
+              <circle cx="140" cy="140" r="110" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="32" stroke-dasharray="380.13 311.02" stroke-dashoffset="0" transform="rotate(-90 140 140)"/>
+              <!-- Reserves -->
+              <circle cx="140" cy="140" r="110" fill="none" stroke="rgba(224,216,209,0.45)" stroke-width="32" stroke-dasharray="172.79 518.36" stroke-dashoffset="-380.13" transform="rotate(-90 140 140)"/>
+              <!-- Invested -->
+              <circle cx="140" cy="140" r="110" fill="none" stroke="#E0D8D1" stroke-width="32" stroke-dasharray="207.35 483.8" stroke-dashoffset="-552.92" transform="rotate(-90 140 140)"/>
+            </svg>
+            <div class="fp-donut-center">
+              <div class="fp-donut-pct">45%</div>
+              <div class="fp-donut-lbl">Called</div>
+              <div class="fp-donut-fund">$9M / $20M</div>
+            </div>
+          </div>
+          <div class="fp-legend">
+            <div class="fp-legend-row"><span class="fp-dot fp-dot-invested"></span><span class="fp-legend-name">Invested</span><span class="fp-legend-val">$6M</span><span class="fp-legend-pct">30%</span></div>
+            <div class="fp-legend-row"><span class="fp-dot fp-dot-reserves"></span><span class="fp-legend-name">Reserves · Follow-ons</span><span class="fp-legend-val">$5M</span><span class="fp-legend-pct">25%</span></div>
+            <div class="fp-legend-row"><span class="fp-dot fp-dot-uncalled"></span><span class="fp-legend-name">Dry Powder · Uncalled</span><span class="fp-legend-val">$11M</span><span class="fp-legend-pct">55%</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Disclosure -->
+      <div class="fp-disclosure aos" data-delay="300">
+        <div class="fp-disc-grid">
+          <div><span class="fp-disc-label">Reporting period</span><p>Q1 2026 · Figures as of Q1 2026</p></div>
+          <div><span class="fp-disc-label">Valuation method</span><p>ASC 820 · Unrealized marks held at cost or latest priced round</p></div>
+          <div><span class="fp-disc-label">Benchmark</span><p>Cambridge Associates U.S. Venture Capital Index · 2024 vintage</p></div>
+        </div>
+      </div>
     </div>
   </section>
 
