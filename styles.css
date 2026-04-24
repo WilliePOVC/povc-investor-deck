@@ -2859,4 +2859,6 @@ a.meet-team-card-link:hover .meet-team-logo {
 .fp-raise-fill { height: 100%; background: #E0D8D1; border-radius: 3px; }
 
 /* Donut hero dollar amount */
-.fp-donut-hero { font-family: var(--font-heading); font-weight: 700; font-size: 2.8rem; color: #fff; letter-spacing: -0.03em; }
+.fp-donut-hero { font-family: var(--font-heading); font-weight: 700; font-size: 2rem; color: #fff; letter-spacing: -0.03em; }
+
+.fp-dot-called { background: rgba(255,255,255,0.45); }
