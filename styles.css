@@ -2837,6 +2837,7 @@ a.meet-team-card-link:hover .meet-team-logo {
 .fp-dot-invested { background: #E0D8D1; }
 .fp-dot-reserves { background: rgba(224,216,209,0.45); }
 .fp-dot-uncalled { background: rgba(255,255,255,0.10); }
+.fp-dot-fees { background: rgba(207,126,104,0.50); }
 .fp-legend-name { color: rgba(255,255,255,0.70); }
 .fp-legend-val { color: #fff; font-weight: 600; }
 .fp-legend-pct { color: rgba(255,255,255,0.45); text-align: right; }
@@ -2862,6 +2863,21 @@ a.meet-team-card-link:hover .meet-team-logo {
 .fp-donut-hero { font-family: var(--font-heading); font-weight: 700; font-size: 2rem; color: #fff; letter-spacing: -0.03em; }
 
 .fp-dot-called { background: rgba(255,255,255,0.45); }
+
+/* Fee Impact Tile */
+.fp-fee-tile { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 14px; padding: 16px 18px; margin-bottom: 20px; }
+.fp-fee-tile-header { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+.fp-fee-tile-icon { font-size: 0.9rem; opacity: 0.5; }
+.fp-fee-tile-title { font-family: var(--font-body); font-weight: 600; font-size: 0.75rem; color: rgba(255,255,255,0.75); text-transform: uppercase; letter-spacing: 0.12em; }
+.fp-fee-tile-term { margin-left: auto; font-family: var(--font-body); font-size: 0.65rem; color: rgba(207,126,104,0.70); font-weight: 500; letter-spacing: 0.06em; }
+.fp-fee-tile-body { display: flex; flex-direction: column; gap: 8px; }
+.fp-fee-row { display: flex; justify-content: space-between; align-items: center; }
+.fp-fee-label { font-family: var(--font-body); font-size: 0.78rem; color: rgba(255,255,255,0.55); }
+.fp-fee-rate { font-size: 0.65rem; color: rgba(255,255,255,0.30); margin-left: 4px; }
+.fp-fee-val { font-family: var(--font-heading); font-weight: 600; font-size: 0.82rem; color: rgba(207,126,104,0.85); }
+.fp-fee-divider { height: 1px; background: rgba(255,255,255,0.06); margin: 4px 0; }
+.fp-fee-total .fp-fee-label { color: rgba(255,255,255,0.80); font-weight: 600; }
+.fp-fee-total .fp-fee-val { color: rgba(207,126,104,1); font-weight: 700; font-size: 0.88rem; }
 
 /* ── ENHANCED ANIMATIONS ──────────────────────────── */
 
@@ -2976,9 +2992,12 @@ a.meet-team-card-link:hover .meet-team-logo {
   animation: donutDraw 1.2s var(--ease-out) 0.3s backwards;
 }
 .fp-donut-wrap.visible circle:nth-child(3) {
-  animation: donutDraw 1.2s var(--ease-out) 0.6s backwards;
+  animation: donutDraw 1.2s var(--ease-out) 0.5s backwards;
 }
 .fp-donut-wrap.visible circle:nth-child(4) {
+  animation: donutDraw 1.2s var(--ease-out) 0.7s backwards;
+}
+.fp-donut-wrap.visible circle:nth-child(5) {
   animation: donutDraw 1.2s var(--ease-out) 0.9s backwards;
 }
 
@@ -3020,11 +3039,13 @@ a.meet-team-card-link:hover .meet-team-logo {
 .fp-legend .fp-legend-row:nth-child(2) { opacity: 0; }
 .fp-legend .fp-legend-row:nth-child(3) { opacity: 0; }
 .fp-legend .fp-legend-row:nth-child(4) { opacity: 0; }
+.fp-legend .fp-legend-row:nth-child(5) { opacity: 0; }
 
 .fp-legend.visible .fp-legend-row:nth-child(1) { animation: legendSlide 0.4s var(--ease-out) 1.6s forwards; }
-.fp-legend.visible .fp-legend-row:nth-child(2) { animation: legendSlide 0.4s var(--ease-out) 1.75s forwards; }
-.fp-legend.visible .fp-legend-row:nth-child(3) { animation: legendSlide 0.4s var(--ease-out) 1.9s forwards; }
-.fp-legend.visible .fp-legend-row:nth-child(4) { animation: legendSlide 0.4s var(--ease-out) 2.05s forwards; }
+.fp-legend.visible .fp-legend-row:nth-child(2) { animation: legendSlide 0.4s var(--ease-out) 1.72s forwards; }
+.fp-legend.visible .fp-legend-row:nth-child(3) { animation: legendSlide 0.4s var(--ease-out) 1.84s forwards; }
+.fp-legend.visible .fp-legend-row:nth-child(4) { animation: legendSlide 0.4s var(--ease-out) 1.96s forwards; }
+.fp-legend.visible .fp-legend-row:nth-child(5) { animation: legendSlide 0.4s var(--ease-out) 2.08s forwards; }
 
 /* Donut track subtle rotation */
 @keyframes trackSpin {
