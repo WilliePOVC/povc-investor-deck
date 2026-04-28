@@ -1774,7 +1774,8 @@ a.vp-card-link:hover h4 {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 0 56px;
+  padding: 0 24px;
+  flex: 1;
 }
 
 .scorecard-num {
