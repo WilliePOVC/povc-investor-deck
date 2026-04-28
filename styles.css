@@ -3057,10 +3057,12 @@ a.meet-team-card-link:hover .meet-team-logo {
 .press-slide { overflow: hidden; }
 
 .press-marquee { position: relative; width: 100vw; margin-left: calc(-50vw + 50%); margin-top: 48px; overflow: hidden; }
+.press-light .press-marquee { background: rgba(0,0,0,0.03); border-radius: 20px; width: calc(100% + 40px); margin-left: -20px; padding: 24px 0; }
 .press-fade { position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2; pointer-events: none; }
-.press-fade-l { left: 0; background: linear-gradient(to right, var(--dark, #1a1a1a), transparent); }
-.press-fade-r { right: 0; background: linear-gradient(to left, var(--dark, #1a1a1a), transparent); }
-.press-slide { --dark: #1a1a1a; }
+.press-fade-l { left: 0; background: linear-gradient(to right, var(--press-bg, #1a1a1a), transparent); }
+.press-fade-r { right: 0; background: linear-gradient(to left, var(--press-bg, #1a1a1a), transparent); }
+.press-slide { --press-bg: #1a1a1a; }
+.press-light { --press-bg: #ffffff; }
 
 .press-rows { display: flex; flex-direction: column; gap: 16px; padding: 8px 0; }
 .press-row { display: flex; gap: 16px; width: max-content; }
@@ -3099,6 +3101,18 @@ a.meet-team-card-link:hover .meet-team-logo {
   transform: translateY(-2px);
 }
 
+/* Light-mode press cards */
+.press-light .press-card {
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+.press-light .press-card:hover {
+  background: #ffffff;
+  border-color: rgba(0,0,0,0.14);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+}
+
 .press-card-outlet {
   display: flex;
   align-items: center;
@@ -3113,6 +3127,7 @@ a.meet-team-card-link:hover .meet-team-logo {
   letter-spacing: 0.1em;
   color: rgba(255,255,255,0.50);
 }
+.press-light .press-outlet-name { color: #292929; font-weight: 700; }
 .press-outlet-name.press-serif {
   font-family: Georgia, 'Times New Roman', serif;
   letter-spacing: 0.02em;
@@ -3124,6 +3139,7 @@ a.meet-team-card-link:hover .meet-team-logo {
   font-size: 0.65rem;
   color: rgba(255,255,255,0.30);
 }
+.press-light .press-outlet-date { color: rgba(0,0,0,0.40); }
 
 .press-card-headline {
   font-family: var(--font-heading);
@@ -3136,13 +3152,16 @@ a.meet-team-card-link:hover .meet-team-logo {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+.press-light .press-card-headline { color: #1a1a1a; }
 .press-card-company {
   font-family: var(--font-body);
   font-size: 0.7rem;
   color: #E0D8D1;
   font-weight: 500;
   letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
+.press-light .press-card-company { color: rgba(0,0,0,0.40); }
 
 .press-outlets-bar {
   display: flex;
@@ -3157,6 +3176,8 @@ a.meet-team-card-link:hover .meet-team-logo {
   letter-spacing: 0.04em;
 }
 .press-bar-dot { color: rgba(255,255,255,0.20); }
+.press-light .press-outlets-bar { color: rgba(0,0,0,0.40); }
+.press-light .press-bar-dot { color: rgba(0,0,0,0.15); }
 
 @media (max-width: 768px) {
   .press-card { width: 260px; padding: 16px 18px; }
