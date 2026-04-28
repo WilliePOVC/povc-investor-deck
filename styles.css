@@ -2133,6 +2133,33 @@ a.team-card-link:hover {
   opacity: 0.6;
 }
 
+/* GP credential tab row */
+.gp-tab-row {
+  gap: 8px;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.gp-tab {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.50);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  transition: color 0.3s, border-color 0.3s;
+}
+
+.team-card-link:hover .gp-tab {
+  color: rgba(255,255,255,0.70);
+  border-color: rgba(255,255,255,0.20);
+}
+
 /* Remove old paragraph style from team cards */
 .team-card p {
   display: none;
