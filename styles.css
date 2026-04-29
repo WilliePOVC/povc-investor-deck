@@ -2552,15 +2552,23 @@ a.meet-team-card-link:hover .meet-team-logo {
   .fd-panel-tags { flex-wrap: wrap; margin-top: 20px; }
   .fd-tag { font-size: 0.72rem; padding: 6px 12px; }
 
-  /* Products panel: match tech panel layout on mobile (name left, % top-right) */
+  /* Products panel: match tech panel layout on mobile (name upper-left, % upper-right) */
+  .fd-split-panel--products { padding: 28px; }
   .fd-split-panel--products .fd-panel-top {
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
     gap: 24px;
   }
-  .fd-split-panel--products .fd-panel-name { font-size: 1.5rem; line-height: 1.1; }
-  .fd-split-panel--products .fd-panel-pct { font-size: clamp(56px, 8vw, 72px); }
+  .fd-split-panel--products .fd-panel-name {
+    font-size: 1.5rem;
+    line-height: 1.1;
+    order: 0;
+  }
+  .fd-split-panel--products .fd-panel-pct {
+    font-size: clamp(40px, 10vw, 72px);
+    order: 1;
+  }
 }
 
 /* ── GP HEADSHOTS ──────────────────────────────────────────── */
@@ -2857,7 +2865,16 @@ a.meet-team-card-link:hover .meet-team-logo {
   .fp-donut-wrap { width: 220px; height: 220px; }
   .fp-legend-row { font-size: 0.72rem; padding: 10px 12px; gap: 8px; }
   .fp-chips { flex-wrap: wrap; gap: 8px; }
-  .fp-topbar { flex-direction: column; align-items: flex-start; gap: 16px; }
+  /* Top bar: center title + chips */
+  .fp-topbar { flex-direction: column; align-items: center; gap: 16px; text-align: center; }
+  .fp-topbar .eyebrow { text-align: center; }
+  .fp-topbar .section-title { text-align: center; }
+  .fp-chips { justify-content: center; }
+
+  /* Disclosure references: center */
+  .fp-disc-grid { text-align: center; }
+  .fp-disc-label { text-align: center; }
+  .fp-disc-grid p { text-align: center; }
 }
 
 /* Returns column — no outer box */
