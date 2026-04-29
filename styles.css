@@ -2670,19 +2670,26 @@ a.meet-team-card-link:hover .meet-team-logo {
 /* VP Network Company Logos */
 .vp-company-logos {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
-  gap: 32px;
+  gap: 48px;
   margin-top: 48px;
   padding-top: 32px;
   border-top: 1px solid rgba(255,255,255,0.1);
 }
 
+.vp-company-logos a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+
 .vp-company-logo {
   height: 36px;
   width: auto;
-  max-width: 140px;
+  max-width: 150px;
   object-fit: contain;
   opacity: 1;
   transition: opacity 0.3s;
@@ -2690,6 +2697,12 @@ a.meet-team-card-link:hover .meet-team-logo {
 
 .vp-company-logo:hover {
   opacity: 0.8;
+}
+
+/* Southern Glazer's logo is dark on dark — brighten it */
+.vp-company-logos a:first-child .vp-company-logo {
+  filter: brightness(1.8);
+  opacity: 0.85;
 }
 
 /* ── VP GRID: 6-COLUMN (RESPONSIVE) ───────────────────────── */
