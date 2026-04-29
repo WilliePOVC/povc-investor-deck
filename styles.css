@@ -2551,6 +2551,16 @@ a.meet-team-card-link:hover .meet-team-logo {
   .fd-split-panel { padding: 28px; min-height: auto; overflow: visible; }
   .fd-panel-tags { flex-wrap: wrap; margin-top: 20px; }
   .fd-tag { font-size: 0.72rem; padding: 6px 12px; }
+
+  /* Products panel: match tech panel layout on mobile (name left, % top-right) */
+  .fd-split-panel--products .fd-panel-top {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  .fd-split-panel--products .fd-panel-name { font-size: 1.5rem; line-height: 1.1; }
+  .fd-split-panel--products .fd-panel-pct { font-size: clamp(56px, 8vw, 72px); }
 }
 
 /* ── GP HEADSHOTS ──────────────────────────────────────────── */
@@ -2815,13 +2825,14 @@ a.meet-team-card-link:hover .meet-team-logo {
   .fp-eyebrow { text-align: center; }
   .fp-panel-sub { text-align: center; }
 
-  /* TVPI card */
+  /* TVPI card — center everything */
   .fp-tvpi-row { flex-direction: column; align-items: center; gap: 12px; }
-  .fp-tvpi-right { text-align: center; }
+  .fp-tvpi-right { text-align: center; display: flex; flex-direction: column; align-items: center; }
   .fp-tvpi-num { font-size: 3rem; }
-  .fp-card-tvpi { text-align: center; }
+  .fp-card-tvpi { text-align: center; display: flex; flex-direction: column; align-items: center; }
   .fp-card-tvpi .fp-metric-name,
   .fp-card-tvpi .fp-metric-desc { text-align: center; }
+  .fp-bench-pill { margin: 8px auto 0; }
 
   /* DPI / RVPI cards — center + align numbers and bars */
   .fp-card-metric { text-align: center; display: flex; flex-direction: column; align-items: center; }
