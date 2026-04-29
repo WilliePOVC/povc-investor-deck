@@ -2549,7 +2549,7 @@ a.meet-team-card-link:hover .meet-team-logo {
     gap: 12px;
   }
   .fd-split-panel { padding: 28px; min-height: auto; overflow: visible; }
-  .fd-panel-tags { flex-wrap: wrap; }
+  .fd-panel-tags { flex-wrap: wrap; margin-top: 20px; }
   .fd-tag { font-size: 0.72rem; padding: 6px 12px; }
 }
 
@@ -2809,12 +2809,40 @@ a.meet-team-card-link:hover .meet-team-logo {
 @media(max-width:900px) {
   .fp-grid { grid-template-columns: 1fr; }
   .fp-slide { padding: 40px 24px !important; }
+
+  /* Returns panel — center everything */
+  .fp-panel-head { text-align: center; }
+  .fp-eyebrow { text-align: center; }
+  .fp-panel-sub { text-align: center; }
+
+  /* TVPI card */
+  .fp-tvpi-row { flex-direction: column; align-items: center; gap: 12px; }
+  .fp-tvpi-right { text-align: center; }
   .fp-tvpi-num { font-size: 3rem; }
-  .fp-tvpi-row { flex-direction: column; align-items: flex-start; gap: 12px; }
-  .fp-tvpi-right { text-align: left; }
-  .fp-split-val { font-size: 1.8rem; }
-  .fp-irr-num { font-size: 1.8rem; }
+  .fp-card-tvpi { text-align: center; }
+  .fp-card-tvpi .fp-metric-name,
+  .fp-card-tvpi .fp-metric-desc { text-align: center; }
+
+  /* DPI / RVPI cards — center + align numbers and bars */
+  .fp-card-metric { text-align: center; display: flex; flex-direction: column; align-items: center; }
+  .fp-card-metric .fp-metric-name,
+  .fp-card-metric .fp-metric-desc { text-align: center; }
+  .fp-split-val { font-size: 1.8rem; text-align: center; }
+  .fp-split-bench { text-align: center; }
+  .fp-meter { width: 80%; }
+
+  /* IRR card — center + smaller number */
+  .fp-card-irr { text-align: center; }
+  .fp-irr-row { flex-direction: column; align-items: center; gap: 8px; }
+  .fp-irr-row > div:first-child { text-align: center; }
+  .fp-irr-num { font-size: 1.6rem; }
+  .fp-irr-mark span { font-size: 0.58rem; }
+
+  /* Capital Deployment panel — center header */
   .fp-panel { padding: 24px; }
+  .fp-panel .fp-panel-head { text-align: center; }
+  .fp-panel .fp-panel-sub { text-align: center; }
+
   .fp-donut-wrap { width: 220px; height: 220px; }
   .fp-legend-row { font-size: 0.72rem; padding: 10px 12px; gap: 8px; }
   .fp-chips { flex-wrap: wrap; gap: 8px; }
