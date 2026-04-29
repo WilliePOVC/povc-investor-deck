@@ -14,6 +14,27 @@
 </head>
 <body>
 
+  <!-- ACCESS GATE -->
+  <div id="access-gate">
+    <div class="gate-card">
+      <div class="gate-logo">
+        <img src="assets/icon-color.svg" alt="Press On Ventures" class="gate-logo-icon">
+        <div class="gate-logo-text">PRESS ON<br>VENTURES</div>
+      </div>
+      <form id="gate-form" autocomplete="off" novalidate>
+        <div class="gate-field">
+          <input type="email" id="gate-email" placeholder="Email address" required autocomplete="email">
+          <div class="gate-error" id="gate-email-error"></div>
+        </div>
+        <div class="gate-field">
+          <input type="password" id="gate-password" placeholder="Password" required autocomplete="current-password">
+          <div class="gate-error" id="gate-password-error"></div>
+        </div>
+        <button type="submit" class="gate-btn">View Presentation</button>
+      </form>
+    </div>
+  </div>
+
   <!-- TOP NAV -->
   <nav id="top-nav">
     <a href="#cover" class="nav-logo">
@@ -1483,6 +1504,100 @@
         window.open(card.dataset.companyUrl, '_blank', 'noopener,noreferrer');
       });
     });
+  </script>
+
+  <!-- ACCESS GATE LOGIC -->
+  <script>
+  (function() {
+    const GATE_KEY = 'povc_gate_token';
+    const GATE_EXPIRY_DAYS = 7;
+    const PW_HASH = 'f2a1c9d062c21e0ded435ca329cec31efaef495cd857d4c0865ced549f107702';
+    // Cloudflare Worker endpoint for notification emails
+    const NOTIFY_URL = 'https://povc-gate-notify.presson.workers.dev';
+
+    function isAuthenticated() {
+      try {
+        const token = localStorage.getItem(GATE_KEY);
+        if (!token) return false;
+        const parsed = JSON.parse(token);
+        if (Date.now() > parsed.expires) {
+          localStorage.removeItem(GATE_KEY);
+          return false;
+        }
+        return true;
+      } catch (e) { return false; }
+    }
+
+    function grantAccess(email) {
+      const expires = Date.now() + GATE_EXPIRY_DAYS * 24 * 60 * 60 * 1000;
+      localStorage.setItem(GATE_KEY, JSON.stringify({ email, expires }));
+      document.getElementById('access-gate').classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    async function sha256(message) {
+      const msgBuffer = new TextEncoder().encode(message);
+      const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+      const hashArray = Array.from(new Uint8Array(hashBuffer));
+      return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+
+    async function sendNotification(email) {
+      try {
+        await fetch(NOTIFY_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, timestamp: new Date().toISOString() })
+        });
+      } catch (e) {
+        console.error('Gate notification failed:', e);
+      }
+    }
+
+    // Check if already authenticated
+    if (isAuthenticated()) {
+      document.getElementById('access-gate').classList.add('hidden');
+    } else {
+      document.body.style.overflow = 'hidden';
+    }
+
+    // Form handler
+    document.getElementById('gate-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const emailInput = document.getElementById('gate-email');
+      const pwInput = document.getElementById('gate-password');
+      const emailError = document.getElementById('gate-email-error');
+      const pwError = document.getElementById('gate-password-error');
+      const email = emailInput.value.trim();
+      const pw = pwInput.value;
+
+      // Reset errors
+      emailError.textContent = '';
+      pwError.textContent = '';
+      emailInput.classList.remove('gate-input-error');
+      pwInput.classList.remove('gate-input-error');
+
+      // Validate email
+      const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      if (!emailValid) {
+        emailError.textContent = 'Please Enter a Valid Email Address';
+        emailInput.classList.add('gate-input-error');
+        return;
+      }
+
+      // Validate password
+      const hash = await sha256(pw);
+      if (hash !== PW_HASH) {
+        pwError.textContent = 'Incorrect password';
+        pwInput.classList.add('gate-input-error');
+        return;
+      }
+
+      // Success — fire notification (non-blocking) then grant access
+      sendNotification(email);
+      grantAccess(email);
+    });
+  })();
   </script>
 </body>
 </html>
