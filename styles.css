@@ -2463,7 +2463,7 @@ a.meet-team-card-link:hover .meet-team-logo {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  overflow: hidden;
+  overflow: visible;
 }
 .fd-split-panel--tech {
   background: var(--dark);
@@ -2548,7 +2548,9 @@ a.meet-team-card-link:hover .meet-team-logo {
     height: auto;
     gap: 12px;
   }
-  .fd-split-panel { padding: 28px; min-height: 180px; }
+  .fd-split-panel { padding: 28px; min-height: auto; overflow: visible; }
+  .fd-panel-tags { flex-wrap: wrap; }
+  .fd-tag { font-size: 0.72rem; padding: 6px 12px; }
 }
 
 /* ── GP HEADSHOTS ──────────────────────────────────────────── */
@@ -2804,7 +2806,20 @@ a.meet-team-card-link:hover .meet-team-logo {
 
 /* Main grid: 1.4fr returns | 1fr capital */
 .fp-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px; margin-bottom: 40px; }
-@media(max-width:900px) { .fp-grid { grid-template-columns: 1fr; } .fp-slide { padding: 40px 24px !important; } }
+@media(max-width:900px) {
+  .fp-grid { grid-template-columns: 1fr; }
+  .fp-slide { padding: 40px 24px !important; }
+  .fp-tvpi-num { font-size: 3rem; }
+  .fp-tvpi-row { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .fp-tvpi-right { text-align: left; }
+  .fp-split-val { font-size: 1.8rem; }
+  .fp-irr-num { font-size: 1.8rem; }
+  .fp-panel { padding: 24px; }
+  .fp-donut-wrap { width: 220px; height: 220px; }
+  .fp-legend-row { font-size: 0.72rem; padding: 10px 12px; gap: 8px; }
+  .fp-chips { flex-wrap: wrap; gap: 8px; }
+  .fp-topbar { flex-direction: column; align-items: flex-start; gap: 16px; }
+}
 
 /* Returns column — no outer box */
 .fp-returns-col { display: flex; flex-direction: column; gap: 16px; }
