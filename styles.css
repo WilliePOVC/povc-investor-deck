@@ -3398,3 +3398,387 @@ a.meet-team-card-link:hover .meet-team-logo {
   .press-fade { width: 60px; }
   .press-outlets-bar { flex-wrap: wrap; gap: 8px; font-size: 0.7rem; }
 }
+/* ═══════════════════════════════════════════════════
+   Capital Deployment — focused infographic slide
+═══════════════════════════════════════════════════ */
+
+.cd-slide {
+  background: #292929;
+  color: #fff;
+  padding: 64px 80px;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  font-family: var(--font-body);
+}
+
+.cd-slide .povc-eyebrow.on-dark { color: rgba(255, 255, 255, 0.45); }
+
+/* ── HEADER ─────────────────────────────────────── */
+.cd-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 32px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.cd-header-left { min-width: 0; flex: 1 1 auto; display: flex; flex-direction: column; gap: 12px; }
+.cd-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 2.6rem;
+  letter-spacing: -0.025em;
+  line-height: 1;
+  color: #fff;
+  margin: 0;
+}
+.cd-subtitle {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.005em;
+}
+.cd-subtitle strong {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: rgba(224, 216, 209, 0.95);
+  letter-spacing: -0.005em;
+}
+.cd-header-right { display: flex; gap: 12px; flex-shrink: 0; }
+.cd-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  gap: 4px;
+  min-width: 90px;
+}
+.cd-chip span {
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 500;
+}
+.cd-chip strong {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #fff;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+/* ── FUND RAISE PROGRESS ────────────────────────── */
+.cd-raise {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  padding: 22px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.cd-raise-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.cd-raise-eyebrow {
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 500;
+}
+.cd-raise-val {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.55);
+}
+.cd-raise-val strong {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: #fff;
+  font-size: 1.1rem;
+  letter-spacing: -0.01em;
+}
+.cd-raise-of { color: rgba(255, 255, 255, 0.45); margin-left: 2px; }
+.cd-raise-track {
+  position: relative;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.cd-raise-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: linear-gradient(90deg, rgba(224, 216, 209, 0.5), #E0D8D1);
+  border-radius: 4px;
+}
+.cd-raise-scale {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.35);
+  letter-spacing: 0.04em;
+  font-weight: 500;
+}
+
+/* ── MAIN INFOGRAPHIC ───────────────────────────── */
+.cd-main {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 56px;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 48px 56px;
+}
+
+.cd-donut-col { display: flex; justify-content: center; }
+.cd-donut-wrap { position: relative; width: 360px; height: 360px; }
+.cd-donut { width: 100%; height: 100%; }
+.cd-donut-track {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.04);
+  stroke-width: 38;
+}
+.cd-donut-invested,
+.cd-donut-reserves,
+.cd-donut-fees,
+.cd-donut-dry {
+  fill: none;
+  stroke-width: 38;
+  stroke-linecap: butt;
+}
+.cd-donut-invested { stroke: #E0D8D1; }
+.cd-donut-reserves { stroke: rgba(224, 216, 209, 0.55); }
+.cd-donut-fees     { stroke: rgba(224, 216, 209, 0.28); }
+.cd-donut-dry      { stroke: rgba(255, 255, 255, 0.08); }
+
+.cd-donut-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 4px;
+}
+.cd-donut-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 500;
+}
+.cd-donut-hero {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 3.6rem;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  color: #fff;
+  margin-top: 4px;
+}
+.cd-donut-fund {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.55);
+  margin-top: 8px;
+}
+.cd-donut-pct {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: -0.005em;
+  color: rgba(224, 216, 209, 0.9);
+  margin-top: 6px;
+  padding: 4px 10px;
+  background: rgba(224, 216, 209, 0.1);
+  border-radius: 999px;
+}
+
+/* ── BREAKDOWN ROWS ─────────────────────────────── */
+.cd-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.cd-row {
+  display: grid;
+  grid-template-columns: 6px 1fr auto;
+  gap: 18px;
+  padding: 16px 20px 18px;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  align-items: center;
+  position: relative;
+}
+.cd-row-bar {
+  width: 6px;
+  height: 100%;
+  border-radius: 999px;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cd-row-bar::before {
+  content: "";
+  display: block;
+  width: 6px;
+  height: 100%;
+  border-radius: 999px;
+}
+.cd-row-primary  .cd-row-bar::before { background: #E0D8D1; }
+.cd-row-muted-1  .cd-row-bar::before { background: rgba(224, 216, 209, 0.55); }
+.cd-row-muted-2  .cd-row-bar::before { background: rgba(224, 216, 209, 0.28); }
+.cd-row-ghost    .cd-row-bar::before {
+  background: repeating-linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.2) 4px,
+    transparent 4px,
+    transparent 8px
+  );
+}
+
+.cd-row-dot { display: none; }
+
+.cd-row-text { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.cd-row-name {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+.cd-row-sub {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.4;
+}
+.cd-row-num {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+.cd-row-val {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #fff;
+  letter-spacing: -0.025em;
+  line-height: 1;
+}
+.cd-row-pct {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  min-width: 36px;
+  text-align: right;
+  letter-spacing: -0.005em;
+}
+
+.cd-row-meter {
+  grid-column: 1 / -1;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 4px;
+}
+.cd-row-meter-fill {
+  height: 100%;
+  border-radius: 2px;
+}
+.cd-fill-primary { background: #E0D8D1; }
+.cd-fill-muted-1 { background: rgba(224, 216, 209, 0.55); }
+.cd-fill-muted-2 { background: rgba(224, 216, 209, 0.28); }
+.cd-fill-ghost   { background: rgba(255, 255, 255, 0.18); }
+
+/* Highlight the primary "Invested" row */
+.cd-row-primary {
+  background: rgba(224, 216, 209, 0.06);
+  border-color: rgba(224, 216, 209, 0.22);
+}
+
+/* ── FOOTER STATS ───────────────────────────────── */
+.cd-footer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 28px;
+}
+.cd-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0 28px;
+  border-right: 1px solid rgba(255, 255, 255, 0.07);
+}
+.cd-stat:first-child { padding-left: 0; }
+.cd-stat:last-child { border-right: none; padding-right: 0; }
+.cd-stat-eyebrow {
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  font-weight: 500;
+}
+.cd-stat-val {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 2.2rem;
+  color: #fff;
+  letter-spacing: -0.035em;
+  line-height: 1;
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+}
+.cd-stat-val span {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.45);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.cd-stat-sub {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.4;
+}
+
+/* ── Capital Deployment Mobile ─────────────────── */
+@media (max-width: 900px) {
+  .cd-slide { padding: 40px 24px !important; }
+  .cd-header { flex-direction: column; align-items: flex-start; text-align: center; }
+  .cd-header-left { align-items: center; }
+  .cd-header-right { justify-content: center; width: 100%; }
+  .cd-title { font-size: 1.8rem; text-align: center; }
+  .cd-subtitle { text-align: center; font-size: 0.85rem; }
+  .cd-main { grid-template-columns: 1fr; gap: 32px; padding: 32px 24px; }
+  .cd-donut-wrap { width: 280px; height: 280px; }
+  .cd-donut-hero { font-size: 2.6rem; }
+  .cd-footer { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .cd-stat { border-right: none; padding: 0; }
+  .cd-stat-val { font-size: 1.6rem; }
+  .cd-row-val { font-size: 1.2rem; }
+}
+@media (max-width: 480px) {
+  .cd-header-right { flex-wrap: wrap; }
+  .cd-footer { grid-template-columns: 1fr; }
+  .cd-donut-wrap { width: 240px; height: 240px; }
+  .cd-donut-hero { font-size: 2.2rem; }
+}

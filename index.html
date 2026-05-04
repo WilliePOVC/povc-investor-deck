@@ -842,64 +842,139 @@
   </section>
 
   <!-- FUND PERFORMANCE v2 -->
-  <section id="fund-performance" class="section fp-slide">
+  <section id="fund-performance" class="section cd-slide">
     <div class="slide-number slide-number-light">10</div>
-    <div class="section-inner">
-      <!-- Top bar -->
-      <div class="fp-topbar aos" data-delay="0" style="justify-content:center;text-align:center">
-        <div>
-          <div class="eyebrow light" style="margin-bottom:8px">Capital Deployment</div>
-          <h2 class="section-title light" style="font-size:clamp(1.5rem,3vw,2.2rem);margin:0">Press On Ventures Fund I</h2>
+
+    <!-- Header -->
+    <div class="cd-header aos" data-delay="0">
+      <div class="cd-header-left">
+        <div class="eyebrow light">Capital Deployment</div>
+        <h1 class="cd-title">Press On Ventures Fund I</h1>
+        <div class="cd-subtitle">
+          <strong>$4.88M</strong> deployed across <strong>10 portfolio companies</strong> · <strong>$2.22M</strong> reserved for follow-ons
+        </div>
+      </div>
+      <div class="cd-header-right">
+        <div class="cd-chip"><span>Target</span><strong>$20M</strong></div>
+        <div class="cd-chip"><span>Raised</span><strong>$14.82M</strong></div>
+        <div class="cd-chip"><span>As of</span><strong>Q1 2026</strong></div>
+      </div>
+    </div>
+
+    <!-- Fund Raise Progress -->
+    <div class="cd-raise aos" data-delay="50">
+      <div class="cd-raise-head">
+        <span class="cd-raise-eyebrow">Fund raise progress</span>
+        <span class="cd-raise-val">
+          <strong>$14.82M</strong>
+          <span class="cd-raise-of"> raised of $20M target · 74.1%</span>
+        </span>
+      </div>
+      <div class="cd-raise-track"><div class="cd-raise-fill" style="width:74.1%"></div></div>
+      <div class="cd-raise-scale">
+        <span>$0</span><span>$5M</span><span>$10M</span><span>$15M</span><span>$20M</span>
+      </div>
+    </div>
+
+    <!-- Main Infographic -->
+    <div class="cd-main aos" data-delay="100">
+      <!-- Donut -->
+      <div class="cd-donut-col">
+        <div class="cd-donut-wrap">
+          <svg class="cd-donut" viewBox="0 0 280 280">
+            <circle cx="140" cy="140" r="110" class="cd-donut-track"/>
+            <!-- Dry Powder -->
+            <circle cx="140" cy="140" r="110" class="cd-donut-dry" stroke-dasharray="153.07 538.27" stroke-dashoffset="0" transform="rotate(-90 140 140)"/>
+            <!-- Fees -->
+            <circle cx="140" cy="140" r="110" class="cd-donut-fees" stroke-dasharray="207.21 484.13" stroke-dashoffset="-153.07" transform="rotate(-90 140 140)"/>
+            <!-- Reserves -->
+            <circle cx="140" cy="140" r="110" class="cd-donut-reserves" stroke-dasharray="103.60 587.74" stroke-dashoffset="-360.28" transform="rotate(-90 140 140)"/>
+            <!-- Invested -->
+            <circle cx="140" cy="140" r="110" class="cd-donut-invested" stroke-dasharray="227.46 463.88" stroke-dashoffset="-463.88" transform="rotate(-90 140 140)"/>
+          </svg>
+          <div class="cd-donut-center">
+            <div class="cd-donut-eyebrow">Deployed</div>
+            <div class="cd-donut-hero">$4.88M</div>
+            <div class="cd-donut-fund">of $14.82M raised</div>
+            <div class="cd-donut-pct">33% put to work</div>
+          </div>
         </div>
       </div>
 
-      <div class="fp-chips aos" data-delay="50" style="justify-content:center;margin-bottom:40px">
-        <div class="fp-chip"><span>Target</span><strong>$20M</strong></div>
-        <div class="fp-chip"><span>Raised</span><strong>$14.82M</strong></div>
-        <div class="fp-chip"><span>As of</span><strong>Q1 2026</strong></div>
-      </div>
-
-      <!-- Capital Deployment (centered, full-width) -->
-      <div style="max-width:520px;margin:0 auto">
-        <div class="fp-panel aos" data-delay="100">
-          <div class="fp-panel-head" style="text-align:center">
-            <div class="fp-panel-sub">$4.88M invested · $2.22M reserved</div>
+      <!-- Breakdown -->
+      <div class="cd-breakdown">
+        <div class="cd-row cd-row-primary">
+          <div class="cd-row-bar"></div>
+          <div class="cd-row-text">
+            <div class="cd-row-name">Invested</div>
+            <div class="cd-row-sub">Deployed into portfolio companies</div>
           </div>
-          <!-- Fund Raise progress bar -->
-          <div class="fp-raise-strip aos-scale" id="fp-raise-strip">
-            <div class="fp-raise-labels">
-              <span class="fp-raise-lbl">Fund raise</span>
-              <span class="fp-raise-val"><strong>$14.82M</strong> <span class="fp-raise-of">of $20M target</span></span>
-            </div>
-            <div class="fp-raise-track"><div class="fp-raise-fill" style="width:74%"></div></div>
+          <div class="cd-row-num">
+            <div class="cd-row-val">$4.88M</div>
+            <div class="cd-row-pct">33%</div>
           </div>
-          <div class="fp-donut-wrap">
-            <svg class="fp-donut" viewBox="0 0 240 240">
-              <circle cx="120" cy="120" r="95" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="32"/>
-              <!-- Net Dry Powder (22% = 132.09) -->
-              <circle cx="120" cy="120" r="95" fill="none" stroke="rgba(255,255,255,0.10)" stroke-width="32" stroke-dasharray="132.09 464.81" stroke-dashoffset="0" transform="rotate(-90 120 120)"/>
-              <!-- Fees & Expenses (30% = 178.82) -->
-              <circle cx="120" cy="120" r="95" fill="none" stroke="rgba(207,126,104,0.50)" stroke-width="32" stroke-dasharray="178.82 418.08" stroke-dashoffset="-132.09" transform="rotate(-90 120 120)"/>
-              <!-- Reserves (15% = 89.44) -->
-              <circle cx="120" cy="120" r="95" fill="none" stroke="rgba(224,216,209,0.45)" stroke-width="32" stroke-dasharray="89.44 507.46" stroke-dashoffset="-310.91" transform="rotate(-90 120 120)"/>
-              <!-- Invested (33% = 196.55) -->
-              <circle cx="120" cy="120" r="95" fill="none" stroke="#E0D8D1" stroke-width="32" stroke-dasharray="196.55 400.35" stroke-dashoffset="-400.35" transform="rotate(-90 120 120)"/>
-            </svg>
-            <div class="fp-donut-center">
-              <div class="fp-donut-hero">$4.88M</div>
-              <div class="fp-donut-lbl">Deployed</div>
-              <div class="fp-donut-fund">of $14.82M raised</div>
-            </div>
-          </div>
-
-          <div class="fp-legend">
-            <div class="fp-legend-row"><span class="fp-dot fp-dot-called"></span><span class="fp-legend-name">Capital Called</span><span class="fp-legend-val">$7.44M</span><span class="fp-legend-pct">50%</span></div>
-            <div class="fp-legend-row"><span class="fp-dot fp-dot-invested"></span><span class="fp-legend-name">Invested</span><span class="fp-legend-val">$4.88M</span><span class="fp-legend-pct">33%</span></div>
-            <div class="fp-legend-row"><span class="fp-dot fp-dot-reserves"></span><span class="fp-legend-name">Reserves · Follow-ons</span><span class="fp-legend-val">$2.22M</span><span class="fp-legend-pct">15%</span></div>
-            <div class="fp-legend-row"><span class="fp-dot fp-dot-fees"></span><span class="fp-legend-name">Fees &amp; Expenses</span><span class="fp-legend-val">$4.44M</span><span class="fp-legend-pct">30%</span></div>
-            <div class="fp-legend-row"><span class="fp-dot fp-dot-uncalled"></span><span class="fp-legend-name">Net Dry Powder</span><span class="fp-legend-val">$3.28M</span><span class="fp-legend-pct">22%</span></div>
-          </div>
+          <div class="cd-row-meter"><div class="cd-row-meter-fill cd-fill-primary" style="width:33%"></div></div>
         </div>
+        <div class="cd-row cd-row-muted-1">
+          <div class="cd-row-bar"></div>
+          <div class="cd-row-text">
+            <div class="cd-row-name">Reserves · Follow-ons</div>
+            <div class="cd-row-sub">Earmarked for existing companies</div>
+          </div>
+          <div class="cd-row-num">
+            <div class="cd-row-val">$2.22M</div>
+            <div class="cd-row-pct">15%</div>
+          </div>
+          <div class="cd-row-meter"><div class="cd-row-meter-fill cd-fill-muted-1" style="width:15%"></div></div>
+        </div>
+        <div class="cd-row cd-row-muted-2">
+          <div class="cd-row-bar"></div>
+          <div class="cd-row-text">
+            <div class="cd-row-name">Fees &amp; Expenses</div>
+            <div class="cd-row-sub">Management fee + fund expenses</div>
+          </div>
+          <div class="cd-row-num">
+            <div class="cd-row-val">$4.44M</div>
+            <div class="cd-row-pct">30%</div>
+          </div>
+          <div class="cd-row-meter"><div class="cd-row-meter-fill cd-fill-muted-2" style="width:30%"></div></div>
+        </div>
+        <div class="cd-row cd-row-ghost">
+          <div class="cd-row-bar"></div>
+          <div class="cd-row-text">
+            <div class="cd-row-name">Dry Powder</div>
+            <div class="cd-row-sub">Available for new investments</div>
+          </div>
+          <div class="cd-row-num">
+            <div class="cd-row-val">$3.28M</div>
+            <div class="cd-row-pct">22%</div>
+          </div>
+          <div class="cd-row-meter"><div class="cd-row-meter-fill cd-fill-ghost" style="width:22%"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Stats -->
+    <div class="cd-footer aos" data-delay="200">
+      <div class="cd-stat">
+        <div class="cd-stat-eyebrow">Deployment pace</div>
+        <div class="cd-stat-val">2.44M<span>/yr</span></div>
+        <div class="cd-stat-sub">Year 2 of vintage 2024</div>
+      </div>
+      <div class="cd-stat">
+        <div class="cd-stat-eyebrow">Reserve ratio</div>
+        <div class="cd-stat-val">0.46<span>:1</span></div>
+        <div class="cd-stat-sub">Reserves per dollar invested</div>
+      </div>
+      <div class="cd-stat">
+        <div class="cd-stat-eyebrow">Avg check size</div>
+        <div class="cd-stat-val">$488<span>K</span></div>
+        <div class="cd-stat-sub">Across 10 portfolio companies</div>
+      </div>
+      <div class="cd-stat">
+        <div class="cd-stat-eyebrow">Capital called</div>
+        <div class="cd-stat-val">50<span>%</span></div>
+        <div class="cd-stat-sub">$7.44M called from LPs</div>
       </div>
     </div>
   </section>
