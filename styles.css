@@ -2903,6 +2903,7 @@ a.meet-team-card-link:hover .meet-team-logo {
 .fp-tvpi-right { text-align: right; }
 .fp-tvpi-num { font-family: var(--font-heading); font-weight: 700; font-size: 4.5rem; letter-spacing: -0.05em; line-height: 1; color: #292929; }
 .fp-bench-pill { display: inline-block; background: rgba(26,110,58,0.12); color: #1a6e3a; border-radius: 6px; padding: 4px 10px; font-size: 0.78rem; font-weight: 600; margin-top: 8px; }
+.fp-bench-pill.bench-below { background: rgba(180,130,50,0.15); color: #a08030; }
 
 /* ── DPI / RVPI metric cards ── */
 .fp-split-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
