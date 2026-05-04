@@ -3771,6 +3771,7 @@ a.meet-team-card-link:hover .meet-team-logo {
   .cd-main { grid-template-columns: 1fr; gap: 32px; padding: 32px 24px; }
   .cd-donut-wrap { width: 280px; height: 280px; }
   .cd-donut-hero { font-size: 2.6rem; }
+  .cd-donut-pct { font-size: 0.68rem; padding: 3px 8px; margin-top: 4px; }
   .cd-footer { grid-template-columns: repeat(2, 1fr); gap: 24px; }
   .cd-stat { border-right: none; padding: 0; }
   .cd-stat-val { font-size: 1.6rem; }
@@ -3781,4 +3782,5 @@ a.meet-team-card-link:hover .meet-team-logo {
   .cd-footer { grid-template-columns: 1fr; }
   .cd-donut-wrap { width: 240px; height: 240px; }
   .cd-donut-hero { font-size: 2.2rem; }
+  .cd-donut-pct { font-size: 0.6rem; padding: 2px 7px; margin-top: 2px; }
 }
