@@ -2,6 +2,10 @@ name = "povc-gate-notify"
 main = "gate-notify.js"
 compatibility_date = "2024-01-01"
 
+[[kv_namespaces]]
+binding = "GATE_KV"
+id = "f2513d6182c44b69b9208f3f335a9cb7"
+
 [vars]
 # Non-sensitive vars can go here
 # Sensitive vars (SMTP creds) should be set via `wrangler secret put`
