@@ -20,7 +20,7 @@ import { join } from 'path';
 const execAsync = promisify(exec);
 
 const NOTIFY_URL = 'https://povc-gate-notify.willie-610.workers.dev';
-const POLL_INTERVAL_MS = 30_000; // 30 seconds
+const POLL_INTERVAL_MS = 300_000; // 5 minutes
 const NOTIFY_TO = ['willie@presson.vc', 'sean@presson.vc'];
 
 async function sendEmail(visitorEmail, timestamp, ip, location) {

@@ -2,18 +2,18 @@
  * Cloudflare Worker: POVC Gate Notification
  * 
  * Endpoints:
- * POST /           — Gate page submits notification (writes to KV + forwards to VPS for email)
- * GET  /pending    — VPS poller fetches pending notifications (reads + deletes from KV)
+ * POST /           — Gate page submits notification (appends to single KV keys)
+ * GET  /pending    — VPS poller fetches pending notifications (reads + clears)
  * GET  /viewers    — Full permanent viewer log (never deleted)
  * 
  * Requires KV namespace binding: GATE_KV
  * 
- * Storage strategy:
- * - notify_<ts>_<rand>  — pending notifications (24h TTL, deleted on /pending read)
- * - viewer_<ts>_<rand>  — permanent log (no TTL, never deleted)
+ * Storage strategy (v2 — single-key, no list() calls):
+ * - "pending_queue"  — JSON array of pending notifications (cleared on /pending read)
+ * - "viewers_log"    — JSON array of all viewers (permanent, append-only)
  * 
- * Email notifications:
- * - Forwards to VPS gate-notify-server (port 3847) which sends via himalaya SMTP
+ * This avoids KV list() operations entirely, staying well within free tier limits.
+ * Only uses get() and put() which have 100,000/day limit on free tier.
  */
 
 const VPS_URL = 'http://187.127.104.231:3847';
@@ -22,7 +22,6 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     
-    // CORS
     const corsHeaders = {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
@@ -55,16 +54,20 @@ export default {
           hour: '2-digit', minute: '2-digit',
         });
 
-        const now = Date.now();
-        const rand = Math.random().toString(36).slice(2, 8);
-        const notification = { email, timestamp, ip, location, pt };
+        const notification = { email, timestamp: timestamp || new Date().toISOString(), ip, location, pt };
 
-        // Store in KV (viewer log + pending)
         if (env.GATE_KV) {
-          // Pending notification (24h TTL, consumed by /pending)
-          await env.GATE_KV.put(`notify_${now}_${rand}`, JSON.stringify(notification), { expirationTtl: 86400 });
-          // Permanent viewer log (no TTL, never deleted)
-          await env.GATE_KV.put(`viewer_${now}_${rand}`, JSON.stringify(notification));
+          // Append to pending queue
+          const pendingRaw = await env.GATE_KV.get('pending_queue');
+          const pending = pendingRaw ? JSON.parse(pendingRaw) : [];
+          pending.push(notification);
+          await env.GATE_KV.put('pending_queue', JSON.stringify(pending));
+
+          // Append to permanent viewer log
+          const viewersRaw = await env.GATE_KV.get('viewers_log');
+          const viewers = viewersRaw ? JSON.parse(viewersRaw) : [];
+          viewers.push(notification);
+          await env.GATE_KV.put('viewers_log', JSON.stringify(viewers));
         }
 
         // Forward to VPS for email notification (fire-and-forget)
@@ -85,24 +88,21 @@ export default {
       }
     }
 
-    // GET /pending — VPS poller fetches and clears pending notifications
+    // GET /pending — fetch and clear pending notifications
     if (request.method === 'GET' && url.pathname === '/pending') {
       try {
         if (!env.GATE_KV) {
-          return new Response(JSON.stringify({ notifications: [], error: 'KV not bound' }), {
+          return new Response(JSON.stringify({ notifications: [] }), {
             headers: { ...corsHeaders, 'Content-Type': 'application/json' }
           });
         }
 
-        const list = await env.GATE_KV.list({ prefix: 'notify_' });
-        const notifications = [];
+        const pendingRaw = await env.GATE_KV.get('pending_queue');
+        const notifications = pendingRaw ? JSON.parse(pendingRaw) : [];
 
-        for (const key of list.keys) {
-          const val = await env.GATE_KV.get(key.name);
-          if (val) {
-            notifications.push(JSON.parse(val));
-            await env.GATE_KV.delete(key.name);
-          }
+        // Clear the queue
+        if (notifications.length > 0) {
+          await env.GATE_KV.put('pending_queue', '[]');
         }
 
         return new Response(JSON.stringify({ notifications }), {
@@ -119,34 +119,78 @@ export default {
     if (request.method === 'GET' && url.pathname === '/viewers') {
       try {
         if (!env.GATE_KV) {
-          return new Response(JSON.stringify({ viewers: [], error: 'KV not bound' }), {
+          return new Response(JSON.stringify({ viewers: [], total: 0 }), {
+            headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+          });
+        }
+
+        const viewersRaw = await env.GATE_KV.get('viewers_log');
+        const viewers = viewersRaw ? JSON.parse(viewersRaw) : [];
+
+        // Sort newest first
+        viewers.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+
+        return new Response(JSON.stringify({ viewers, total: viewers.length }), {
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+        });
+      } catch (err) {
+        return new Response(JSON.stringify({ viewers: [], error: err.message }), {
+          status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+        });
+      }
+    }
+
+    // GET /migrate — one-time migration from old individual keys to new single-key format
+    if (request.method === 'GET' && url.pathname === '/migrate') {
+      try {
+        if (!env.GATE_KV) {
+          return new Response(JSON.stringify({ ok: false, error: 'KV not bound' }), {
             headers: { ...corsHeaders, 'Content-Type': 'application/json' }
           });
         }
 
         const allViewers = [];
+        const allPending = [];
         let cursor = undefined;
-        
-        // Paginate through all viewer_ keys
+
+        // Migrate viewer_ keys
         do {
           const list = await env.GATE_KV.list({ prefix: 'viewer_', cursor });
           for (const key of list.keys) {
             const val = await env.GATE_KV.get(key.name);
-            if (val) {
-              allViewers.push(JSON.parse(val));
-            }
+            if (val) allViewers.push(JSON.parse(val));
           }
           cursor = list.list_complete ? undefined : list.cursor;
         } while (cursor);
 
-        // Sort by timestamp (newest first)
-        allViewers.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+        // Migrate notify_ keys
+        cursor = undefined;
+        do {
+          const list = await env.GATE_KV.list({ prefix: 'notify_', cursor });
+          for (const key of list.keys) {
+            const val = await env.GATE_KV.get(key.name);
+            if (val) allPending.push(JSON.parse(val));
+          }
+          cursor = list.list_complete ? undefined : list.cursor;
+        } while (cursor);
 
-        return new Response(JSON.stringify({ viewers: allViewers, total: allViewers.length }), {
+        // Write to new single keys
+        if (allViewers.length > 0) {
+          allViewers.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+          await env.GATE_KV.put('viewers_log', JSON.stringify(allViewers));
+        }
+        if (allPending.length > 0) {
+          await env.GATE_KV.put('pending_queue', JSON.stringify(allPending));
+        }
+
+        return new Response(JSON.stringify({
+          ok: true,
+          migrated: { viewers: allViewers.length, pending: allPending.length }
+        }), {
           headers: { ...corsHeaders, 'Content-Type': 'application/json' }
         });
       } catch (err) {
-        return new Response(JSON.stringify({ viewers: [], error: err.message }), {
+        return new Response(JSON.stringify({ ok: false, error: err.message }), {
           status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' }
         });
       }
