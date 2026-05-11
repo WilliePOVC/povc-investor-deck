@@ -385,16 +385,77 @@ document.addEventListener('DOMContentLoaded', () => {
 (function() {
   const items = document.querySelectorAll('.cd-anim');
   if (!items.length) return;
+
+  // Store target widths on meter fills and zero them out
+  document.querySelectorAll('.cd-row-meter-fill').forEach(fill => {
+    fill.dataset.targetWidth = fill.style.width;
+    fill.style.width = '0%';
+  });
+
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const delay = parseInt(entry.target.dataset.cdDelay || '0', 10);
-        setTimeout(() => entry.target.classList.add('cd-visible'), delay);
+        setTimeout(() => {
+          entry.target.classList.add('cd-visible');
+          // Animate meter fill inside this row
+          const fill = entry.target.querySelector('.cd-row-meter-fill');
+          if (fill && fill.dataset.targetWidth) {
+            fill.style.width = fill.dataset.targetWidth;
+          }
+        }, delay);
         obs.unobserve(entry.target);
       }
     });
   }, { threshold: 0.1 });
   items.forEach(el => obs.observe(el));
+})();
+
+// ── Donut spin + segment draw-in animation ──
+(function() {
+  const wrap = document.querySelector('.cd-donut-wrap');
+  if (!wrap) return;
+  const svg = wrap.querySelector('.cd-donut');
+  const segments = wrap.querySelectorAll('.cd-donut-invested, .cd-donut-reserves, .cd-donut-dry, .cd-donut-fees');
+
+  // Store real dasharray/offset values, then zero them
+  const segData = [];
+  segments.forEach(seg => {
+    segData.push({
+      el: seg,
+      da: seg.getAttribute('stroke-dasharray'),
+      offset: seg.getAttribute('stroke-dashoffset')
+    });
+    seg.setAttribute('stroke-dasharray', '0 691.15');
+    seg.setAttribute('stroke-dashoffset', '0');
+  });
+
+  // Remove per-segment rotate transforms (we'll rotate the whole SVG)
+  segments.forEach(seg => seg.removeAttribute('transform'));
+
+  // Set initial SVG rotation
+  svg.style.transform = 'rotate(-450deg)';
+  svg.style.transition = 'transform 1.6s cubic-bezier(0.22, 1, 0.36, 1)';
+
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Spin the donut
+        svg.style.transform = 'rotate(-90deg)';
+        // Draw each segment with stagger
+        segData.forEach((s, i) => {
+          setTimeout(() => {
+            s.el.setAttribute('stroke-dasharray', s.da);
+            s.el.setAttribute('stroke-dashoffset', s.offset);
+          }, 200 + i * 150);
+        });
+        // Fade in center text
+        wrap.classList.add('cd-spin');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.25 });
+  obs.observe(wrap);
 })();
 
 // ── Fund raise bar animation fix ──

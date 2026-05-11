@@ -3544,7 +3544,9 @@ a.meet-team-card-link:hover .meet-team-logo {
 
 .cd-donut-col { display: flex; justify-content: center; }
 .cd-donut-wrap { position: relative; width: 360px; height: 360px; }
-.cd-donut { width: 100%; height: 100%; }
+.cd-donut {
+  width: 100%; height: 100%;
+}
 .cd-donut-track {
   fill: none;
   stroke: rgba(255, 255, 255, 0.04);
@@ -3557,6 +3559,8 @@ a.meet-team-card-link:hover .meet-team-logo {
   fill: none;
   stroke-width: 38;
   stroke-linecap: butt;
+  transition: stroke-dasharray 1.4s cubic-bezier(0.22, 1, 0.36, 1),
+              stroke-dashoffset 1.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .cd-donut-invested { stroke: #E0D8D1; }
 .cd-donut-reserves { stroke: rgba(224, 216, 209, 0.55); }
@@ -3572,6 +3576,13 @@ a.meet-team-card-link:hover .meet-team-logo {
   justify-content: center;
   text-align: center;
   gap: 4px;
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 0.6s ease 1s, transform 0.6s ease 1s;
+}
+.cd-donut-wrap.cd-spin .cd-donut-center {
+  opacity: 1;
+  transform: scale(1);
 }
 .cd-donut-eyebrow {
   font-size: 0.7rem;
@@ -3701,6 +3712,7 @@ a.meet-team-card-link:hover .meet-team-logo {
 .cd-row-meter-fill {
   height: 100%;
   border-radius: 2px;
+  transition: width 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.3s;
 }
 .cd-fill-primary { background: #E0D8D1; }
 .cd-fill-muted-1 { background: rgba(224, 216, 209, 0.55); }
@@ -3742,12 +3754,24 @@ a.meet-team-card-link:hover .meet-team-logo {
 /* ── BREAKDOWN ROW ANIMATIONS ────────────────────── */
 .cd-anim {
   opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: translateX(40px);
+  transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1), transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .cd-anim.cd-visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateX(0);
+}
+.cd-group-header.cd-anim {
+  transform: translateX(24px);
+}
+.cd-group-divider.cd-anim {
+  transform: translateX(0);
+  transform-origin: right;
+  scale: 0 1;
+  transition: opacity 0.4s ease, scale 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.cd-group-divider.cd-anim.cd-visible {
+  scale: 1 1;
 }
 
 /* Highlight the primary "Invested" row */
