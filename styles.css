@@ -3707,6 +3707,49 @@ a.meet-team-card-link:hover .meet-team-logo {
 .cd-fill-muted-2 { background: rgba(224, 216, 209, 0.28); }
 .cd-fill-ghost   { background: rgba(255, 255, 255, 0.18); }
 
+/* ── GROUP HEADERS & DIVIDER ─────────────────────── */
+.cd-group-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4px 8px;
+  margin-bottom: 4px;
+}
+.cd-group-header:not(:first-child) {
+  margin-top: 4px;
+}
+.cd-group-label {
+  font-family: var(--font-heading);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+}
+.cd-group-total {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.35);
+  letter-spacing: 0.02em;
+}
+.cd-group-divider {
+  border: none;
+  border-top: 1.5px dashed rgba(255, 255, 255, 0.15);
+  margin: 14px 0;
+}
+
+/* ── BREAKDOWN ROW ANIMATIONS ────────────────────── */
+.cd-anim {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.cd-anim.cd-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* Highlight the primary "Invested" row */
 .cd-row-primary {
   background: rgba(224, 216, 209, 0.06);

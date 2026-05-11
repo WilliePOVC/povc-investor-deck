@@ -381,6 +381,22 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 })();
 
+// ── Capital deployment breakdown stagger animations ──
+(function() {
+  const items = document.querySelectorAll('.cd-anim');
+  if (!items.length) return;
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const delay = parseInt(entry.target.dataset.cdDelay || '0', 10);
+        setTimeout(() => entry.target.classList.add('cd-visible'), delay);
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  items.forEach(el => obs.observe(el));
+})();
+
 // ── Fund raise bar animation fix ──
 (function() {
   const strip = document.getElementById('fp-raise-strip');

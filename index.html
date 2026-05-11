@@ -929,14 +929,14 @@
         <div class="cd-donut-wrap">
           <svg class="cd-donut" viewBox="0 0 280 280">
             <circle cx="140" cy="140" r="110" class="cd-donut-track"/>
-            <!-- Dry Powder -->
-            <circle cx="140" cy="140" r="110" class="cd-donut-dry" stroke-dasharray="107.13 584.02" stroke-dashoffset="0" transform="rotate(-90 140 140)"/>
-            <!-- Fees -->
-            <circle cx="140" cy="140" r="110" class="cd-donut-fees" stroke-dasharray="207.35 483.80" stroke-dashoffset="-107.13" transform="rotate(-90 140 140)"/>
-            <!-- Reserves -->
-            <circle cx="140" cy="140" r="110" class="cd-donut-reserves" stroke-dasharray="103.67 587.48" stroke-dashoffset="-314.48" transform="rotate(-90 140 140)"/>
             <!-- Invested -->
-            <circle cx="140" cy="140" r="110" class="cd-donut-invested" stroke-dasharray="273.00 418.15" stroke-dashoffset="-418.15" transform="rotate(-90 140 140)"/>
+            <circle cx="140" cy="140" r="110" class="cd-donut-invested" stroke-dasharray="273.00 418.15" stroke-dashoffset="0" transform="rotate(-90 140 140)"/>
+            <!-- Reserves -->
+            <circle cx="140" cy="140" r="110" class="cd-donut-reserves" stroke-dasharray="103.67 587.48" stroke-dashoffset="-273.00" transform="rotate(-90 140 140)"/>
+            <!-- Dry Powder -->
+            <circle cx="140" cy="140" r="110" class="cd-donut-dry" stroke-dasharray="107.13 584.02" stroke-dashoffset="-376.67" transform="rotate(-90 140 140)"/>
+            <!-- Fees -->
+            <circle cx="140" cy="140" r="110" class="cd-donut-fees" stroke-dasharray="207.35 483.80" stroke-dashoffset="-483.80" transform="rotate(-90 140 140)"/>
           </svg>
           <div class="cd-donut-center">
             <div class="cd-donut-eyebrow">Deployed</div>
@@ -949,7 +949,12 @@
 
       <!-- Breakdown -->
       <div class="cd-breakdown">
-        <div class="cd-row cd-row-primary">
+        <!-- Portfolio Companies Group -->
+        <div class="cd-group-header cd-anim" data-cd-delay="0">
+          <span class="cd-group-label">Portfolio Companies</span>
+          <span class="cd-group-total">$10.38M · 70%</span>
+        </div>
+        <div class="cd-row cd-row-primary cd-anim" data-cd-delay="80">
           <div class="cd-row-bar"></div>
           <div class="cd-row-text">
             <div class="cd-row-name">Invested</div>
@@ -961,7 +966,7 @@
           </div>
           <div class="cd-row-meter"><div class="cd-row-meter-fill cd-fill-primary" style="width:40%"></div></div>
         </div>
-        <div class="cd-row cd-row-muted-1">
+        <div class="cd-row cd-row-muted-1 cd-anim" data-cd-delay="160">
           <div class="cd-row-bar"></div>
           <div class="cd-row-text">
             <div class="cd-row-name">Reserves · Follow-ons</div>
@@ -973,19 +978,7 @@
           </div>
           <div class="cd-row-meter"><div class="cd-row-meter-fill cd-fill-muted-1" style="width:15%"></div></div>
         </div>
-        <div class="cd-row cd-row-muted-2">
-          <div class="cd-row-bar"></div>
-          <div class="cd-row-text">
-            <div class="cd-row-name">Fees &amp; Expenses</div>
-            <div class="cd-row-sub">Management fee + fund expenses</div>
-          </div>
-          <div class="cd-row-num">
-            <div class="cd-row-val">$4.44M</div>
-            <div class="cd-row-pct">30%</div>
-          </div>
-          <div class="cd-row-meter"><div class="cd-row-meter-fill cd-fill-muted-2" style="width:30%"></div></div>
-        </div>
-        <div class="cd-row cd-row-ghost">
+        <div class="cd-row cd-row-ghost cd-anim" data-cd-delay="240">
           <div class="cd-row-bar"></div>
           <div class="cd-row-text">
             <div class="cd-row-name">Dry Powder</div>
@@ -996,6 +989,27 @@
             <div class="cd-row-pct">15%</div>
           </div>
           <div class="cd-row-meter"><div class="cd-row-meter-fill cd-fill-ghost" style="width:15%"></div></div>
+        </div>
+
+        <!-- Divider -->
+        <div class="cd-group-divider cd-anim" data-cd-delay="320"></div>
+
+        <!-- Fund Operations Group -->
+        <div class="cd-group-header cd-anim" data-cd-delay="400">
+          <span class="cd-group-label">Fund Operations</span>
+          <span class="cd-group-total">$4.44M · 30%</span>
+        </div>
+        <div class="cd-row cd-row-muted-2 cd-anim" data-cd-delay="480">
+          <div class="cd-row-bar"></div>
+          <div class="cd-row-text">
+            <div class="cd-row-name">Fees &amp; Expenses</div>
+            <div class="cd-row-sub">Management fee + fund expenses</div>
+          </div>
+          <div class="cd-row-num">
+            <div class="cd-row-val">$4.44M</div>
+            <div class="cd-row-pct">30%</div>
+          </div>
+          <div class="cd-row-meter"><div class="cd-row-meter-fill cd-fill-muted-2" style="width:30%"></div></div>
         </div>
       </div>
     </div>
