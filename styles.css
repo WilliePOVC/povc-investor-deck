@@ -3520,6 +3520,11 @@ a.meet-team-card-link:hover .meet-team-logo {
   inset: 0 auto 0 0;
   background: linear-gradient(90deg, rgba(224, 216, 209, 0.5), #E0D8D1);
   border-radius: 4px;
+  width: 0 !important;
+  transition: width 1.6s cubic-bezier(0.22, 1, 0.36, 1) 0.3s;
+}
+.cd-raise.cd-bar-visible .cd-raise-fill {
+  width: var(--raise-w, 0%) !important;
 }
 .cd-raise-scale {
   display: flex;
@@ -3712,7 +3717,11 @@ a.meet-team-card-link:hover .meet-team-logo {
 .cd-row-meter-fill {
   height: 100%;
   border-radius: 2px;
-  transition: width 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.3s;
+  width: 0 !important;
+  transition: width 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.15s;
+}
+.cd-row.cd-visible .cd-row-meter-fill {
+  width: var(--meter-w, 0%) !important;
 }
 .cd-fill-primary { background: #E0D8D1; }
 .cd-fill-muted-1 { background: rgba(224, 216, 209, 0.55); }
@@ -3755,7 +3764,7 @@ a.meet-team-card-link:hover .meet-team-logo {
 .cd-anim {
   opacity: 0;
   transform: translateX(40px);
-  transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1), transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .cd-anim.cd-visible {
   opacity: 1;

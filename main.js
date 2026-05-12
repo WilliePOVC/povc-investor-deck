@@ -386,24 +386,36 @@ document.addEventListener('DOMContentLoaded', () => {
   const items = document.querySelectorAll('.cd-anim');
   if (!items.length) return;
 
-  // Store target widths on meter fills and zero them out
+  // Transfer inline widths to CSS custom properties (CSS handles the 0 → target transition)
   document.querySelectorAll('.cd-row-meter-fill').forEach(fill => {
-    fill.dataset.targetWidth = fill.style.width;
-    fill.style.width = '0%';
+    fill.style.setProperty('--meter-w', fill.style.width || '0%');
+    fill.style.removeProperty('width');
   });
+
+  // Fund raise bar: same approach
+  const raiseBar = document.querySelector('.cd-raise');
+  if (raiseBar) {
+    const raiseFill = raiseBar.querySelector('.cd-raise-fill');
+    if (raiseFill) {
+      raiseFill.style.setProperty('--raise-w', raiseFill.style.width || '0%');
+      raiseFill.style.removeProperty('width');
+    }
+    const raiseObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          raiseBar.classList.add('cd-bar-visible');
+          raiseObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    raiseObs.observe(raiseBar);
+  }
 
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const delay = parseInt(entry.target.dataset.cdDelay || '0', 10);
-        setTimeout(() => {
-          entry.target.classList.add('cd-visible');
-          // Animate meter fill inside this row
-          const fill = entry.target.querySelector('.cd-row-meter-fill');
-          if (fill && fill.dataset.targetWidth) {
-            fill.style.width = fill.dataset.targetWidth;
-          }
-        }, delay);
+        setTimeout(() => entry.target.classList.add('cd-visible'), delay);
         obs.unobserve(entry.target);
       }
     });
