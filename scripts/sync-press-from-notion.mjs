@@ -34,12 +34,8 @@ const DB_ID = '36ce9175-4432-81b1-88fd-e9d46f533b94';
 // Outlets that get the serif font class
 const SERIF_OUTLETS = new Set(['WSJ', 'LABJ']);
 
-// Notable outlet full names for the bottom bar
-const NOTABLE_OUTLETS = [
-  'Forbes', 'WSJ', 'TechCrunch', 'New York Post', 'Fast Company',
-  'WWD', 'CNET', 'Entrepreneur', 'Healthcare Brew', 'LABJ',
-  'Yahoo', 'Business Wire', 'PR Newswire',
-];
+// Fixed 5 reference outlets for the bottom bar (per Willie)
+const FOOTER_OUTLETS = ['Forbes', 'WSJ', 'TechCrunch', 'Fast Company', 'CNET'];
 
 // Display name → full name for the outlets bar
 const DISPLAY_TO_FULL = {
@@ -146,30 +142,10 @@ function distributeToRows(entries) {
 }
 
 // ─── Generate the outlets bar ───────────────────────────────
-function renderOutletsBar(entries) {
-  // Collect unique publication display names, map to full names, pick notable ones
-  const seen = new Set();
-  const outlets = [];
-  
-  for (const e of entries) {
-    const display = e.pubDisplayName;
-    if (!display || seen.has(display)) continue;
-    seen.add(display);
-    const fullName = DISPLAY_TO_FULL[display] || display;
-    outlets.push(fullName);
-  }
-  
-  // Filter to notable outlets that actually appear, preserving NOTABLE_OUTLETS order
-  const bar = NOTABLE_OUTLETS.filter(n => outlets.some(o => o === n));
-  // Add any remaining that aren't in the notable list
-  for (const o of outlets) {
-    if (!bar.includes(o) && !['YouTube', 'ShoutoutLA', 'VentureBurn', 'Rhythm360', 'Bird', 'Travel Weekly'].includes(o)) {
-      bar.push(o);
-    }
-  }
-  
-  return bar.map((name, i) => {
-    const dot = i < bar.length - 1 ? '<span class="press-bar-dot">&middot;</span>' : '';
+function renderOutletsBar() {
+  // Fixed 5 reference outlets — not dynamic
+  return FOOTER_OUTLETS.map((name, i) => {
+    const dot = i < FOOTER_OUTLETS.length - 1 ? '<span class="press-bar-dot">&middot;</span>' : '';
     return `        <span>${esc(name)}</span>${dot}`;
   }).join('\n');
 }
@@ -215,7 +191,7 @@ ${rowsHtml}
         </div>`;
   
   // Generate outlets bar
-  const outletsBarContent = renderOutletsBar(entries);
+  const outletsBarContent = renderOutletsBar();
   
   // Read current index.html
   let html = readFileSync(INDEX_PATH, 'utf-8');
