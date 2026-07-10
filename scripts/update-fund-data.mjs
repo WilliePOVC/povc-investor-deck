@@ -20,7 +20,7 @@ readFileSync(envPath, 'utf8').split('\n').forEach(line => {
 
 const NOTION_API_KEY = env.NOTION_API_KEY;
 const LP_DB_ID = '196e9175-4432-80c5-babc-f095f1b259ba';
-const FUND_TARGET = 20; // $20M target
+const FUND_TARGET = 15; // $15M target
 
 async function queryAllPages(dbId) {
   const results = [];
