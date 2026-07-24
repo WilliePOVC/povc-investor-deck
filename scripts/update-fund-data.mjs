@@ -65,42 +65,59 @@ async function main() {
   const raisedM = raised / 1000000;
   const raisedStr = raisedM === Math.floor(raisedM) ? `${raisedM}` : `${raisedM.toFixed(2)}`;
   const raisedPct = Math.round((raisedM / FUND_TARGET) * 100);
-  
+  // The progress BAR width can never exceed 100% (avoid visual overflow), but the
+  // label shows the TRUE percentage even when over-target.
+  const barPct = Math.min(raisedPct, 100);
+
   console.log(`  Fund One Capital Closed: $${raisedStr}M`);
-  console.log(`  Raise progress: ${raisedPct}%`);
+  console.log(`  Raise progress: ${raisedPct}% (bar capped at ${barPct}%)`);
 
   // Read HTML
   const htmlPath = join(DECK_DIR, 'index.html');
   let html = readFileSync(htmlPath, 'utf8');
 
-  // Replace using simple string operations (avoid regex $ issues)
-  // 1. Raised chip
-  html = html.replace(
-    /<div class="fp-chip"><span>Raised<\/span><strong>[^<]+<\/strong><\/div>/,
-    `<div class="fp-chip"><span>Raised</span><strong>$${raisedStr}M</strong></div>`
-  );
-  console.log('  ✅ Raised chip');
+  // The deck uses the "cd-" Capital-Deployment slide markup. (Older "fp-" markup
+  // was removed in a redesign — do NOT re-add it.) Each replace() counts its
+  // matches so a markup drift surfaces as a warning instead of a silent no-op.
+  const apply = (label, re, repl) => {
+    if (!re.test(html)) {
+      console.warn(`  ⚠ ${label}: NO MATCH (deck markup may have changed)`);
+      return;
+    }
+    const before = html;
+    html = html.replace(re, repl);
+    console.log(`  ✅ ${label}${html === before ? ' (already current)' : ''}`);
+  };
 
-  // 2. Fund raise bar value
-  html = html.replace(
-    /<span class="fp-raise-val"><strong>[^<]+<\/strong>/,
-    `<span class="fp-raise-val"><strong>$${raisedStr}M</strong>`
+  // 1. Raised chip: <div class="cd-chip"><span>Raised</span><strong>$X</strong></div>
+  apply('Raised chip',
+    /(<div class="cd-chip"><span>Raised<\/span><strong>)\$[^<]+(<\/strong>)/,
+    `$1$$${raisedStr}M$2`
   );
-  console.log('  ✅ Fund raise bar');
 
-  // 3. Donut "of $X raised"
-  html = html.replace(
+  // 2. Fund raise bar value: <strong>$X</strong> inside .cd-raise-val
+  apply('Raise bar value',
+    /(<span class="cd-raise-val">\s*<strong>)\$[^<]+(<\/strong>)/,
+    `$1$$${raisedStr}M$2`
+  );
+
+  // 3. Raise-of label: "raised of $15M target · NN%"
+  apply('Raise-of label',
+    /raised of \$[\d.]+M target · [\d.]+%/,
+    `raised of $${FUND_TARGET}M target · ${raisedPct}%`
+  );
+
+  // 4. Donut center label: "of $X raised"
+  apply('Donut label',
     /of \$[\d.]+M raised/,
     `of $${raisedStr}M raised`
   );
-  console.log('  ✅ Donut label');
 
-  // 4. Fund raise bar width
-  html = html.replace(
-    /class="fp-raise-fill" style="width:\d+%"/,
-    `class="fp-raise-fill" style="width:${raisedPct}%"`
+  // 5. Raise bar fill width (capped at 100%)
+  apply('Raise bar width',
+    /(class="cd-raise-fill" style="width:)[\d.]+%/,
+    `$1${barPct}%`
   );
-  console.log('  ✅ Raise bar width');
 
   writeFileSync(htmlPath, html);
   console.log(`\n✅ Deck updated: Raised = $${raisedStr}M (${raisedPct}% of $${FUND_TARGET}M)`);
