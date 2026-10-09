@@ -1968,7 +1968,7 @@ a.vp-card-link:hover h4 {
 /* 5/5/4 grid — rows 1-2 are 5-col, row 3 is 4 logos centered */
 .coinvestors-logo-grid {
   display: grid;
-  grid-template-columns: repeat(10, 1fr);  /* 10-col for centering math */
+  grid-template-columns: repeat(30, 1fr);  /* 30-col: rows of 5 (span 6) and 6 (span 5) */
   gap: 36px 8px;
   max-width: 1020px;
   margin: 0 auto;
@@ -1978,14 +1978,12 @@ a.vp-card-link:hover h4 {
 
 /* Row 1 & 2: each logo spans 2 cols = 5 per row */
 .coinvestor-logo-card {
-  grid-column: span 2;
+  grid-column: span 6;
 }
 
-/* Row 3 (items 11-14): offset by 1 col to center 4 logos in 10-col grid */
-.coinvestor-logo-card:nth-child(11) { grid-column: 2 / span 2; }
-.coinvestor-logo-card:nth-child(12) { grid-column: 4 / span 2; }
-.coinvestor-logo-card:nth-child(13) { grid-column: 6 / span 2; }
-.coinvestor-logo-card:nth-child(14) { grid-column: 8 / span 2; }
+/* 16 logos: rows of 5 / 5 / 6. Row 3 uses a 12-col sub-grid trick:
+   grid is 30 cols (lcm of 5 & 6) so rows 1-2 span 6, row 3 spans 5. */
+.coinvestor-logo-card:nth-child(n+11) { grid-column: span 5; }
 
 a.coinvestor-logo-card {
   display: flex;
@@ -2064,6 +2062,16 @@ a.coinvestor-logo-card {
 [data-logo="bam-ventures"] .coinvestor-logo-img {
   height: 44px;
   max-width: 160px;
+}
+
+[data-logo="shine-capital"] .coinvestor-logo-img {
+  height: 46px;
+  max-width: 170px;
+}
+
+[data-logo="tusk-ventures"] .coinvestor-logo-img {
+  height: 50px;
+  max-width: 150px;
 }
 
 /* Hover: reveal original brand colors (JS swaps to -color.png) */
@@ -2360,12 +2368,11 @@ a.meet-team-card-link:hover .meet-team-logo {
     gap: 24px 0;
   }
   .coinvestor-logo-card { grid-column: span 2; }
-  .coinvestor-logo-card:nth-child(11),
-  .coinvestor-logo-card:nth-child(12),
-  .coinvestor-logo-card:nth-child(13),
-  .coinvestor-logo-card:nth-child(14) {
+  .coinvestor-logo-card:nth-child(n+11) {
     grid-column: span 2;
   }
+  /* 16 logos in 3 cols leaves one orphan: center it */
+  .coinvestor-logo-card:nth-child(16):last-child { grid-column: 3 / span 2; }
   /* Center last row of 2 remaining after 3-col wrap */
   .coinvestors-panel {
     padding: 32px 20px;
@@ -2783,10 +2790,7 @@ a.meet-team-card-link:hover .meet-team-logo {
     gap: 16px 0;
   }
   .coinvestor-logo-card { grid-column: span 2; }
-  .coinvestor-logo-card:nth-child(11),
-  .coinvestor-logo-card:nth-child(12),
-  .coinvestor-logo-card:nth-child(13),
-  .coinvestor-logo-card:nth-child(14) {
+  .coinvestor-logo-card:nth-child(n+11) {
     grid-column: span 2;
   }
   .coinvestor-logo-img {
