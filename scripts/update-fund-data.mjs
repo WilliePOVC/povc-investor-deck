@@ -26,7 +26,7 @@ const FUND_TARGET = 15; // $15M target
 // GP policy allocations (not derivable from Notion). Dry powder is the
 // residual: raised - invested - reserves - fees. Update these two when the
 // reserve policy or fee budget changes.
-const RESERVES = 2_151_532; // earmarked for follow-ons into existing portcos
+const RESERVES = 2_110_964.02; // earmarked for follow-ons into existing portcos
 const FEES = 4_440_000;     // management fee + fund expenses
 
 // Companies whose capital came via an SPV, NOT Fund One.
